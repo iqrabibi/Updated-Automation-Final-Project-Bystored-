@@ -143,6 +143,7 @@ public class MyFinanceObjects {
     {
         Thread.sleep(2000);
         responseForAddingCard= driver.findElement(getResponseForAddingtCrad).isDisplayed();
+        Thread.sleep(2000);
         return responseForAddingCard;
     }
 
@@ -272,7 +273,9 @@ public class MyFinanceObjects {
         File[] dir_contents = dir.listFiles();
 
         for (int i = 0; i < dir_contents.length; i++) {
-            if (dir_contents[i].getName().equals(fileName))
+           if (dir_contents[i].getName().equals(fileName))
+
+
                 return flag=true;
 
         }

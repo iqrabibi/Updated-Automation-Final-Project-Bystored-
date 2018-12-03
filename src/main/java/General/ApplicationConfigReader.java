@@ -37,5 +37,47 @@ public class ApplicationConfigReader {
     }
 
 
+    @Property(value = "FilePathForUrls")
+    public String FilePathForUrls;
+
+    public String getFilePathForUrls() {
+
+        return FilePathForUrls;
+    }
+
+
+    @Property(value = "FileName")
+    public String FileName;
+
+    public String getFileName() {
+
+        return FileName;
+    }
+
+    @Property(value = "urlForQa1")
+    public String urlForQa1;
+
+    public String geturlForQa1() {
+
+        return urlForQa1;
+    }
+
+    @Property(value = "SheetName")
+    public String SheetName;
+
+    public String getSheetName() {
+
+        return SheetName;
+    }
+
+    @Property(value = "adminPanelQa1URL")
+    public String adminPanelQa1URL;
+
+    public String getadminPanelQa1URL() {
+
+        return adminPanelQa1URL;
+    }
+
+
 
 }

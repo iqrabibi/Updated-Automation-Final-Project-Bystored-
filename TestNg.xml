@@ -11,16 +11,73 @@
 
 
 
-    <test name = "login">
+    <!--<test name = "login">-->
+        <!--<classes>-->
+            <!--<class name="TestCases.LoginFlows">-->
+                <!--<methods>-->
+
+                    <!--<include name="loginTestCasesHappyFlow"></include>-->
+                    <!--<include name="forgetPasswordTestCasesHappyFlow"></include>-->
+                    <!--<include name="forgetPasswordForInvalidEmail"></include>-->
+                    <!--<include name="logintestcasesForInvalidEmail"></include>-->
+                    <!--<include name="loginTestCasesForInvalidPassword"></include>-->
+
+
+
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name = "ContactUs">-->
+        <!--<classes>-->
+            <!--<class name="TestCases.ContactUsFlows">-->
+                <!--<methods>-->
+
+
+                    <!--<include name="contactUsHappyFlow"></include>-->
+                    <!--<include name="contactUsWithInvalidEmail"></include>-->
+                    <!--<include name="contactUsWithInvalidPhoneNumebr"></include>-->
+                    <!--<include name="contactUsWithEmptyFields"></include>-->
+
+
+
+
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name = "New Landing">-->
+        <!--<classes>-->
+            <!--<class name="TestCases.NewLandingFlows">-->
+                <!--<methods>-->
+
+
+                    <!--<include name="headerFlows"></include>-->
+                    <!--<include name="getTodaysLowestPricesFlow"></include>-->
+                    <!--<include name="bookNowFlows"></include>-->
+                    <!--<include name="calculatorFlow"></include>-->
+
+
+
+
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+
+    <test name = "Status Code Checking">
         <classes>
-            <class name="TestCases.LoginFlows">
+            <class name="TestCases.StatusCodeFlows">
                 <methods>
 
-                    <include name="loginTestCasesHappyFlow"></include>
-                    <include name="forgetPasswordTestCasesHappyFlow"></include>
-                    <include name="forgetPasswordForInvalidEmail"></include>
-                    <include name="logintestcasesForInvalidEmail"></include>
-                    <include name="loginTestCasesForInvalidPassword"></include>
+
+                    <!--<include name="statusCodeCheckingForQA1"></include>-->
+                    <include name="statusCodeCheckingForStage"></include>
+
+
 
 
 
@@ -29,77 +86,188 @@
         </classes>
     </test>
 
+    <!--&lt;!&ndash;<test name = "business">&ndash;&gt;-->
+        <!--&lt;!&ndash;<classes>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="TestCases.BusinessFlows">&ndash;&gt;-->
+                <!--&lt;!&ndash;<methods>&ndash;&gt;-->
 
-    <test name = "business">
-        <classes>
-            <class name="TestCases.BusinessFlows">
-                <methods>
-
-                    <include name="businessPageHappyFlow" ></include>
-                    <include name="emailValidation"></include>
-                    <include name="phoneNumberValidation"></include>
-
-
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <test name = "removals">
-    <classes>
-    <class name="TestCases.RemovalsFlows">
-    <methods>
+                    <!--&lt;!&ndash;<include name="businessPageHappyFlow" ></include>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<include name="emailValidation"></include>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<include name="phoneNumberValidation"></include>&ndash;&gt;-->
 
 
-    <include name="removalstestCasesHappyFlow"></include>
-    <include name="removalForInvalidEmail"></include>
-    <include name="removalForInvalidPhoneNumber"></include>
-    <include name="removalClickHere"></include>
+                <!--&lt;!&ndash;</methods>&ndash;&gt;-->
+            <!--&lt;!&ndash;</class>&ndash;&gt;-->
+        <!--&lt;!&ndash;</classes>&ndash;&gt;-->
+    <!--&lt;!&ndash;</test>&ndash;&gt;-->
+
+    <!--<test name = "removals">-->
+    <!--<classes>-->
+    <!--<class name="TestCases.RemovalsFlows">-->
+    <!--<methods>-->
 
 
-    </methods>
-    </class>
-    </classes>
-    </test>
+    <!--<include name="removalstestCasesHappyFlow"></include>-->
+    <!--<include name="removalForInvalidEmail"></include>-->
+    <!--<include name="removalForInvalidPhoneNumber"></include>-->
+    <!--<include name="removalClickHere"></include>-->
 
+
+    <!--</methods>-->
+    <!--</class>-->
+    <!--</classes>-->
+    <!--</test>-->
 
 
 
-    <test name = "MyInfo">
-    <classes>
-    <class name="TestCases.MyinfoFlows">
-    <methods>
 
-    <include name="NegativeCaseForResetPassword" ></include>
-    <include name="updatefields" ></include>
-    <include name="reSetPassword"></include>
+    <!--<test name = "MyInfo">-->
+    <!--<classes>-->
+    <!--<class name="TestCases.MyinfoFlows">-->
+    <!--<methods>-->
 
-
-
-    </methods>
-    </class>
-    </classes>
-    </test>
-
-
-    <test name="MyFinance">
-
-    <classes>
-    <class name="TestCases.MyFinanceFlows">
-    <methods>
-    <include name="MyFinnaceHappyFlowForAddingAccount"></include>
-
-    <include name="deleteCreditCard"></include>
-    <include name="negativeCasesForCardNumber"></include>
-    <include name="negativeCasesForMonthYear"></include>
-    <include name="termOfUse"></include>
-    <include name="downloadInvoices"></include>
+    <!--<include name="NegativeCaseForResetPassword" ></include>-->
+    <!--<include name="updatefields" ></include>-->
+    <!--<include name="reSetPassword"></include>-->
 
 
 
-    </methods>
-    </class>
-    </classes>
-    </test>
+    <!--</methods>-->
+    <!--</class>-->
+    <!--</classes>-->
+    <!--</test>-->
+
+
+    <!--<test name="MyFinance">-->
+
+    <!--<classes>-->
+    <!--<class name="TestCases.MyFinanceFlows">-->
+    <!--<methods>-->
+    <!--<include name="MyFinnaceHappyFlowForAddingAccount"></include>-->
+
+    <!--<include name="deleteCreditCard"></include>-->
+    <!--<include name="negativeCasesForCardNumber"></include>-->
+    <!--<include name="negativeCasesForMonthYear"></include>-->
+    <!--<include name="termOfUse"></include>-->
+    <!--<include name="downloadInvoices"></include>-->
+
+
+
+    <!--</methods>-->
+    <!--</class>-->
+    <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name = "Faqs ">-->
+    <!--<classes>-->
+    <!--<class name="TestCases.FaqsFlows">-->
+    <!--<methods>-->
+
+        <!--<include name="ContactUsFlow" ></include>-->
+        <!--<include name="LeftSideFlows" ></include>-->
+        <!--<include name="ScrollUpFlows"></include>-->
+        <!--<include name="SeacrhFunctionalityWithValidData"></include>-->
+        <!--<include name="SeacrhFunctionalityWithInValidData"></include>-->
+
+
+
+
+
+    <!--</methods>-->
+    <!--</class>-->
+    <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name = "AdmianPanel Login ">-->
+        <!--<classes>-->
+            <!--<class name="TestCases.LoginAdminPanelFlow">-->
+                <!--<methods>-->
+
+                    <!--<include name="loginFuncInvalid"></include>-->
+                    <!--<include name="loginFunc" ></include>-->
+
+
+
+
+
+
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+
+    <!--<test name = "Pricing ">-->
+        <!--<classes>-->
+            <!--<class name="TestCases.PricingFlows">-->
+                <!--<methods>-->
+
+                    <!--<include name="GreenButtonOnPricingPageFlow"></include>-->
+                    <!--<include name="OtherLinkOnpricingpage" ></include>-->
+                    <!--<include name="faqsOfPricingFlows" ></include>-->
+
+
+
+
+
+
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name = "WareHouse ">-->
+        <!--<classes>-->
+            <!--<class name="TestCases.WareHouseFlows">-->
+                <!--<methods>-->
+
+                    <!--<include name="addWarehouse"></include>-->
+
+
+
+
+
+
+
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+
+
+
+    <!--<test name = "StudentStorage ">-->
+    <!--<classes>-->
+    <!--<class name="TestCases.StudentStorageFlows">-->
+    <!--<methods>-->
+
+        <!--<include name="GreenButtonOnPricingPageFlow"></include>-->
+
+        <!--<include name="CratesAddition"></include>-->
+        <!--<include name="CratesCalculatorSubstraction" ></include>-->
+
+        <!--<include name="calculatorFlowsWithAddition"></include>-->
+    <!--<include name="calculatorFlowsWithSubstraction" ></include>-->
+
+
+
+        <!--<include name="TwoPersonAddition"></include>-->
+        <!--<include name="TwoPersonSubstraction" ></include>-->
+        <!--<include name="AllUniversityFlow"></include>-->
+        <!--<include name=" CheckAvailabilityFlow"></include>-->
+
+
+
+
+
+
+
+
+    <!--</methods>-->
+    <!--</class>-->
+    <!--</classes>-->
+    <!--</test>-->
+
 
 </suite>

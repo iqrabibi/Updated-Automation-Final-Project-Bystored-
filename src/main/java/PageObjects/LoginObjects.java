@@ -26,7 +26,7 @@ public class LoginObjects {
     public static By forgetPassword=By.id("forgotPassLink");
     public static By forgotEmail=By.name("forgotEmail");
     public static By forgotLoader=By.className("btn-pad--cta");
-    public static By forgotCross=By.className("close");
+    public static By forgotCross=By.xpath("//*[@id=\"forgotModal\"]/div/div/div[1]/button/span");
     public static By successMessage=By.id("successMsg");
     public static By homeclass=By.linkText("LOGOUT");
     public String forgetText="Forgot password?";
@@ -140,7 +140,7 @@ public class LoginObjects {
     public String clickResetPassword()throws InterruptedException
     {
         driver.findElement(forgotLoader).click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         //wait.until(ExpectedConditions.textToBe(successMessage,"A link to update your password has been sent to your email address."));
         response=driver.findElement(successMessage).getText();
         Thread.sleep(2000);
@@ -151,7 +151,7 @@ public class LoginObjects {
     public void clickCloseButton()throws InterruptedException
     {
         driver.findElement(forgotCross).click();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     public void logoutButton()throws  InterruptedException
@@ -167,14 +167,14 @@ public class LoginObjects {
         setEmail(email);
         Thread.sleep(2000);
         driver.findElement(forgotLoader).click();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
 
 
         invalidEmailForForgetPasswordText= driver.findElement(forgetInvalidEmailDetector).isDisplayed();
         System.out.print(invalidEmailForForgetPasswordText);
 
         clickCloseButton();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
         return invalidEmailForForgetPasswordText;
     }
@@ -188,6 +188,7 @@ public class LoginObjects {
         getEmail(email);
         getPassword(password);
         submit_Button();
+        Thread.sleep(3000);
         actualForInvalidEmailForLogin=driver.findElement(invalidEmailforLogin).getText();
         return actualForInvalidEmailForLogin;
 

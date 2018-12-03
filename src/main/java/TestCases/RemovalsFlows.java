@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import static General.InitMethods.Url;
 import static General.InitMethods.Removals_Object;
+import static General.InitMethods.urlForQa1;
 
 /**
  * Created by VenD on 4/19/2018.
@@ -24,9 +25,9 @@ public class RemovalsFlows extends Main{
     public String phonenumber="034569865342";
     public String invalidPhoneNumber="cfgvhbn12352@";
     public String actualForRemovalhappyFlow;
-    public String expectedForRemovalHappyFlow="Thank you for your enquiry. We will get back to you within one business day";
+    public String expectedForRemovalHappyFlow="Contact details";
     public String actualForInvalidEmailForRemovals;
-    public String expectedForInvalidEmailRemovals="Email Address is invalid";
+    public String expectedForInvalidEmailRemovals="Please enter a valid email address.";
     public String actualForInvalidPhoneNumberForRemovals;
     public String expectedForInvalidPhoneNumberForRemovals="Invalid format.";
     public boolean actualForClickHere;

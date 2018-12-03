@@ -21,7 +21,7 @@ public class LoginFlows extends Main{
     public String  email="iqrabibi25@yahoo.com";
     public String invalidEmail="by@bystored.com";
 
-    public String password="bystored";
+    public String password="iqrabibi";
 
     public String invalidPassowrd="by12345";
     public String actualForForgetPassword;

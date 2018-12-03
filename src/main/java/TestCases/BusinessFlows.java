@@ -1,6 +1,7 @@
 package TestCases;
 
 import General.Main;
+import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 //import static General.InitMethods.Url;
@@ -33,7 +34,7 @@ public class BusinessFlows extends Main{
 
     // @Parameters({ "firstName" ,"lastName","email","phoneNumber","description"})
     @Test
-    public  void businessPageHappyFlow() throws InterruptedException
+    public  void businessPageHappyFlow() throws Exception
     {
 
 //        bp=new BusinessPageObjects(driver);
@@ -44,7 +45,20 @@ public class BusinessFlows extends Main{
         Thread.sleep(2000);
         Business_Object.enterBusinessDetailForHappyFlow(firstName,lastName,email,phoneNumber,description);
         Thread.sleep(2000);
-        actualForBusiness=Business_Object.submitButton();
+        try {
+            actualForBusiness = Business_Object.submitButton();
+        }
+//
+         catch (Exception e) {
+
+            //System.out.println("normal ex");
+            throw new Exception("Zendesk is expire hence this case will fail");
+
+
+
+        }
+
+
 
         Thread.sleep(3000);
         Assert.assertEquals(expectedForBusiness,actualForBusiness);
@@ -64,6 +78,8 @@ public class BusinessFlows extends Main{
 //
 //        bp=new BusinessPageObjects(driver);
 
+       // Business_Object.pageRefreshes();
+        Business_Object.pageRefreshes();
         Business_Object.goToForm();
         Thread.sleep(2000);
         Business_Object.enterBusinessDetailsForInvalidEmail(firstName,lastName,invalidEmail,phoneNumber);

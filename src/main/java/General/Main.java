@@ -5,6 +5,8 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
 import java.io.File;
@@ -26,7 +28,7 @@ import java.lang.reflect.Method;
  */
 public class Main {
    public static WebDriver driver;
-    // public static WebDriverWait wait;
+     public static WebDriverWait wait;
     public static ExtentReports extentReports;
     public static ExtentTest extentTest;
     //public  String  url;
@@ -46,9 +48,12 @@ public class Main {
                 .addSystemInfo("User Name", "Iqra Bibi");
         extentReports.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
 
-        System.setProperty("webdriver.chrome.driver","driver/chromedriver1.exe");
+       System.setProperty("webdriver.chrome.driver","driver/chromedriver1.exe");
+     // System.setProperty("webdriver.gecko.driver","driver/geckodriver.exe");
         // TimeUnit.SECONDS.sleep(5);
         driver = new ChromeDriver();
+        //driver = new FirefoxDriver();
+        wait= new WebDriverWait(driver,15);
 
     }
 

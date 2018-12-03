@@ -17,9 +17,9 @@ public class MyinfoFlows extends Main {
     // String url=getUrl();
 
     public String email="iqrabibi25@yahoo.com";
-    public String pasword ="bystored";
-    public String newPassword="iqrabibi";
-    public String reNewPassword="iqrabibi";
+    public String pasword ="iqrabibi";
+    public String newPassword="password";
+    public String reNewPassword="password";
     public String reNewInvalidPassword="iqra1234";
     public String actualForInvalidPassword;
     public String expectedForInvalidPassword="Passwords do not match";

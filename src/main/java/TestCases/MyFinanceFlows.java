@@ -18,7 +18,7 @@ public class MyFinanceFlows extends Main {
     //MyFinanceObjects mfo;
     //String url=getUrl();
     public String email = "iqrabibi25@yahoo.com";
-    public String password = "bystored";
+    public String password = "iqrabibi";
     public String name = "iqra";
     public String number = "4111111111111111";
     public String month = "10";
