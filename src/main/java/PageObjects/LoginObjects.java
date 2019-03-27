@@ -30,6 +30,9 @@ public class LoginObjects {
     public static By successMessage=By.id("successMsg");
     public static By homeclass=By.linkText("LOGOUT");
     public String forgetText="Forgot password?";
+    public static By hamburger=By.className("nav-toggler");
+    public static By logoutButtonInHamburger=By.className("login-btn");
+
     public static By forgetTextId=By.cssSelector("#forgotModal > div > div > div.modal-body.fp > div > div.col-xs-12.col-sm-12.col-md-12 > h4");
 
     //public static By forgetTextId2=By.id("forgotModal").findElement(By.tagName("h4"));
@@ -93,9 +96,9 @@ public class LoginObjects {
     public Boolean submit_login_button() throws InterruptedException
     {
         driver.findElement(loginSubmitButton).click();
-        Thread.sleep(8000);
+        Thread.sleep(5000);
         //wait.until(ExpectedConditions.presenceOfElementLocated(homeclass));
-        logoutButton= driver.findElement(homeclass).isDisplayed();
+        logoutButton= driver.findElement(hamburger).isDisplayed();
         Thread.sleep(2000);
         return logoutButton;
 
@@ -156,8 +159,13 @@ public class LoginObjects {
 
     public void logoutButton()throws  InterruptedException
     {
-        driver.findElement(homeclass).click();
+        driver.findElement(hamburger).click();
+
         Thread.sleep(2000);
+        driver.findElement(logoutButtonInHamburger).click();
+        Thread.sleep(2000);
+
+
     }
     public boolean forgetPasswordForInvalidEmail(String email) throws InterruptedException
     {

@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import static General.InitMethods.Login_Object;
 import static General.InitMethods.Url;
+import static General.InitMethods.urlForQa1;
 
 /**
  * Created by VenD on 4/16/2018.
@@ -44,7 +45,7 @@ public class LoginFlows extends Main{
 
         //  Login_Object=new LoginObjects(driver);
         Login_Object.openLoginPage(Url);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         actualForForgetPassword =Login_Object.forget_password(email);
         Assert.assertEquals(""+expectedForForgetPassword,""+actualForForgetPassword,"");
         System.out.print("\n Actual For forget password\n"+actualForForgetPassword+"\n Expected For forget password\n"+expectedForForgetPassword);
@@ -55,7 +56,7 @@ public class LoginFlows extends Main{
     {
         //Login_Object=new LoginObjects(driver);
         Login_Object.openLoginPage(Url);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         actualForForgetPasswordForInvalidEmail=Login_Object.forgetPasswordForInvalidEmail(invalidEmail);
         Assert.assertTrue(actualForForgetPasswordForInvalidEmail);
 
@@ -70,14 +71,14 @@ public class LoginFlows extends Main{
 
         // Login_Object=new LoginObjects(driver);
         Login_Object.openLoginPage(Url);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 
         Login_Object.enterDataForLogin(email,password);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         actualForLogin = Login_Object.submit_login_button();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         Login_Object.logoutButton();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         Assert.assertTrue(actualForLogin);
         System.out.print("\n"+actualForLogin);
 
@@ -90,10 +91,10 @@ public class LoginFlows extends Main{
     {
         // log=new LoginObjects(driver);
         Login_Object.openLoginPage(Url);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         actualForInvalidEmailForLogin=Login_Object.enterDataForInvalidEmailForLogin(invalidEmail,password);
 
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         Assert.assertEquals(""+expectedForInvalidEmailForLogin,""+actualForInvalidEmailForLogin);
         System.out.print("\n Actual For login test cases For Invalid Email\n"+actualForInvalidEmailForLogin+"\n Expected For login test cases For Invalid Email\n"+expectedForInvalidEmailForLogin);
 
@@ -106,7 +107,7 @@ public class LoginFlows extends Main{
         // log=new LoginObjects(driver);
         Login_Object.openLoginPage(Url);
 
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 
         actualForInvalidPasswordForLogin=Login_Object.enterDateForInvalidPasswordForLogin(email,invalidPassowrd);
         Assert.assertEquals(""+expectedForInvalidPasswordForLogin,""+actualForInvalidPasswordForLogin);

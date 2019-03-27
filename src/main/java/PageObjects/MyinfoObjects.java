@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static General.InitMethods.Login_Object;
+import static General.InitMethods.Url;
+import static General.InitMethods.urlForQa1;
 
 /**
  * Created by VenD on 4/25/2018.
@@ -84,7 +86,7 @@ public class MyinfoObjects {
 
     public String getResponseForReInvalidPassword() throws InterruptedException
     {
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         getInvalidPasswordResponse=driver.findElement(invalidPasswordError).getText();
         Thread.sleep(2000);
         return getInvalidPasswordResponse;
@@ -110,7 +112,7 @@ public class MyinfoObjects {
 
     public String  getResponseForUpdate() throws InterruptedException
     {
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         updateResponseMessage=driver.findElement(updateResponse).getText();
         Thread.sleep(2000);
         return updateResponseMessage;

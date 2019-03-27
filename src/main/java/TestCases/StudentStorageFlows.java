@@ -5,9 +5,7 @@ import org.openqa.selenium.support.ui.Sleeper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static General.InitMethods.PricingObject;
-import static General.InitMethods.StudentObject;
-import static General.InitMethods.Url;
+import static General.InitMethods.*;
 
 /**
  * Created by VenD on 11/26/2018.
@@ -35,7 +33,7 @@ public class StudentStorageFlows extends Main {
     String expectedForCheckAvailability="Start Storing";
 
     String actualForUniversity;
-    String expectedForUniversity="BOOK STUDENT STORAGE";
+    String expectedForUniversity="Student Storage - All Universities";
 
     @Test
     public void GreenButtonOnPricingPageFlow() throws InterruptedException {

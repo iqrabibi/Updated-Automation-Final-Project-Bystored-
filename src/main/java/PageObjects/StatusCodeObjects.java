@@ -103,25 +103,25 @@ public class StatusCodeObjects {
                 statusCode = RestAssured.get(url + "" + endPoint).statusCode();
                 System.out.print("\n" +statusCode+"\n");
 
-                if(statusCode==200)
-                {
-                    j=j+1;
-                    System.out.print("\n"+j+"\n");
-                }
-
-
-//                if (statusCode != 200)
-//
-//                {
-//                    driver.navigate().refresh();
-//                    statusCode = RestAssured.get(url + "" + endPoint).statusCode();
-//                    System.out.print("\nafter refreshing status code" +statusCode+"\n");
-//                    j = j + 1;
-//                }
-//                else
+//                if(statusCode==200)
 //                {
 //                    j=j+1;
+//                    System.out.print("\n"+j+"\n");
 //                }
+
+
+                if (statusCode != 200)
+
+                {
+                    driver.navigate().refresh();
+                    statusCode = RestAssured.get(url + "" + endPoint).statusCode();
+                    System.out.print("\nafter refreshing status code" +statusCode+"\n");
+                    j = j + 1;
+                }
+                else
+                {
+                    j=j+1;
+                }
 
 
 

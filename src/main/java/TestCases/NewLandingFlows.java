@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import static General.InitMethods.New_Landing_Object;
 import static General.InitMethods.Url;
+import static General.InitMethods.urlForQa1;
 
 /**
  * Created by VenD on 11/4/2018.
@@ -33,7 +34,7 @@ public class NewLandingFlows extends Main {
 
     @Test
     public static void headerFlows() throws InterruptedException {
-        New_Landing_Object.openLandingPage(Url);
+        New_Landing_Object.openLandingPage(urlForQa1);
         actualForHeaderFlows=New_Landing_Object.headerLinks();
         New_Landing_Object.Sleep();
         System.out.println("\n Actual for header flows\n"+actualForHeaderFlows+"\nExpected for header flows\n"+expectedForHeaderFlows);

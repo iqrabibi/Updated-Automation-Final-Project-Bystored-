@@ -20,12 +20,12 @@ public class RemovalsFlows extends Main{
     // RemovalsObjects ro;
     //String url=getUrl();
     public String name="iqra";
-    public String email="iqrabibi25@yahoo.com";
+    public String email="soniaalisiddikki@gmail.com";
     public String invalidEmail="yahoo.com";
     public String phonenumber="034569865342";
     public String invalidPhoneNumber="cfgvhbn12352@";
-    public String actualForRemovalhappyFlow;
-    public String expectedForRemovalHappyFlow="Contact details";
+    public boolean actualForRemovalhappyFlow;
+    public String expectedForRemovalHappyFlow="Full Name Please";
     public String actualForInvalidEmailForRemovals;
     public String expectedForInvalidEmailRemovals="Please enter a valid email address.";
     public String actualForInvalidPhoneNumberForRemovals;
@@ -46,8 +46,9 @@ public class RemovalsFlows extends Main{
         Thread.sleep(2000);
         actualForRemovalhappyFlow = Removals_Object.submit();
         Thread.sleep(3000);
-        Assert.assertEquals(""+actualForRemovalhappyFlow,""+expectedForRemovalHappyFlow);
-        System.out.print("\n Actual For happy flows of Removals\n"+actualForRemovalhappyFlow+"\n Expected For happy flows of Removals \n"+expectedForRemovalHappyFlow);
+        Assert.assertFalse(actualForRemovalhappyFlow);
+//        Assert.assertEquals(""+actualForRemovalhappyFlow,""+expectedForRemovalHappyFlow);
+//        System.out.print("\n Actual For happy flows of Removals\n"+actualForRemovalhappyFlow+"\n Expected For happy flows of Removals \n"+expectedForRemovalHappyFlow);
 
         Thread.sleep(1000);
 

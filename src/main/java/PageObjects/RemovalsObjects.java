@@ -15,11 +15,11 @@ public class RemovalsObjects {
     public static By removalInputEmail=By.id("email");
     public  static By removalInputPhoneNumber=By.id("clientPhone");
     public static By removalSubmitButton=By.id("moves-submit");
-    public static By remoavlmsg=By.xpath("/html/body/section/div/div[1]/div/div/div[1]/div[1]/h3");
-    public String response;
+    public static By remoavlmsg=By.xpath("/html/body/section[1]/div/div[1]/div/div/div[1]/div[2]/div[1]/label/span");
+    public boolean response;
     public static By getInvalidEmailText= By.id("email-error");
     public static By getInvalidPhoneNumberText= By.id("clientPhone-error");
-    public static By clickHereText=By.linkText("Click here");
+    public static By clickHereText=By.linkText("CLICK HERE");
     public static By clickHereNavigate=By.id("find-my-unit-storage");
 
 
@@ -32,6 +32,7 @@ public class RemovalsObjects {
     {
         this.driver=driver;
     }
+
     public void openBrowser(String url) throws InterruptedException
     {
         Thread.sleep(2000);
@@ -70,13 +71,13 @@ public class RemovalsObjects {
 
 
     }
-    public String submit() throws InterruptedException
+    public boolean submit() throws InterruptedException
 
     {
 
         driver.findElement(removalSubmitButton).click();
         Thread.sleep(4000);
-        response=driver.findElement(remoavlmsg).getText();
+        response=driver.findElement(remoavlmsg).isDisplayed();
         Thread.sleep(2000);
         return response;
 

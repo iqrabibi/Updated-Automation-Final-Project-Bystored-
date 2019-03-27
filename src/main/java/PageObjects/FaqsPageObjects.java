@@ -17,7 +17,7 @@ public class FaqsPageObjects {
     WebDriver driver;
     WebDriverWait wait;
     public static By contactUsButton=By.xpath("/html/body/header[2]/div/div/div/div/a");
-    public static By contactUsNameField=By.className("h1");
+    public static By contactUsNameField=By.className("font-bold");
     public static String responseOfContactUsButton;
     public static By LeftSection=By.className("faqs-section-nav");
     public static By scrollButton=By.className("scroll-top");

@@ -14,7 +14,7 @@ import static General.InitMethods.urlForQa1;
  */
 public class FaqsFlows extends Main {
     String actualForFaqHappyFlow;
-    String expectedForFaqsHappyFlow="Got a specific query?";
+    String expectedForFaqsHappyFlow="020 3637 1234";
     Boolean actualForScrollUp;
     String searchValidText="bystored";
     int textGet;

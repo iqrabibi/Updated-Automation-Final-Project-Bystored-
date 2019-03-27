@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import static General.InitMethods.Url;
 import static General.InitMethods.My_Info_Object;
+import static General.InitMethods.urlForQa1;
 
 
 /**

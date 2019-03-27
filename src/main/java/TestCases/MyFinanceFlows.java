@@ -51,7 +51,7 @@ public class MyFinanceFlows extends Main {
         //  mfo = new MyFinanceObjects(driver);
         Thread.sleep(2000);
       //  My_Finanace_Object.openMyaccountPage(email, password,Url);
-        Thread.sleep(2000);
+
         My_Finanace_Object.gOToMyFinance();
         Thread.sleep(2000);
         My_Finanace_Object.addCardOpen();
@@ -150,13 +150,13 @@ public class MyFinanceFlows extends Main {
 //       // My_Finanace_Object = new MyFinanceObjects(driver);
         Thread.sleep(2000);
         My_Finanace_Object.downloadClick();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         //  invoicesId=driver.findElement(By.linkText("View invoice")).getText();
         WebElement element3 = driver.findElement(By.linkText("View invoice"));
         System.out.println(element3.getAttribute("href"));
 
         invRefrence= element3.getAttribute("href");
-        String lastDigitOfRefrence=invRefrence.substring((invRefrence.length()-4));
+        String lastDigitOfRefrence=invRefrence.substring((invRefrence.length()-5));
         System.out.print(lastDigitOfRefrence);
         invoicesId="invoice-"+lastDigitOfRefrence+".pdf";
 

@@ -68,95 +68,93 @@
     <!--</test>-->
 
 
-    <test name = "Status Code Checking">
-        <classes>
-            <class name="TestCases.StatusCodeFlows">
-                <methods>
+    <!--<test name = "Status Code Checking">-->
+        <!--<classes>-->
+            <!--<class name="TestCases.StatusCodeFlows">-->
+                <!--<methods>-->
 
 
-                    <!--<include name="statusCodeCheckingForQA1"></include>-->
-                    <include name="statusCodeCheckingForStage"></include>
+                    <!--&lt;!&ndash;<include name="statusCodeCheckingForQA1"></include>&ndash;&gt;-->
+                    <!--<include name="statusCodeCheckingForStage"></include>-->
 
 
 
 
 
-                </methods>
-            </class>
-        </classes>
-    </test>
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
-    <!--&lt;!&ndash;<test name = "business">&ndash;&gt;-->
-        <!--&lt;!&ndash;<classes>&ndash;&gt;-->
-            <!--&lt;!&ndash;<class name="TestCases.BusinessFlows">&ndash;&gt;-->
-                <!--&lt;!&ndash;<methods>&ndash;&gt;-->
+    <!--<test name = "business">-->
+        <!--<classes>-->
+            <!--<class name="TestCases.BusinessFlows">-->
+                <!--<methods>-->
 
-                    <!--&lt;!&ndash;<include name="businessPageHappyFlow" ></include>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<include name="emailValidation"></include>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<include name="phoneNumberValidation"></include>&ndash;&gt;-->
+                    <!--<include name="businessPageHappyFlow" ></include>-->
+                    <!--<include name="emailValidation"></include>-->
+                    <!--<include name="phoneNumberValidation"></include>-->
 
 
-                <!--&lt;!&ndash;</methods>&ndash;&gt;-->
-            <!--&lt;!&ndash;</class>&ndash;&gt;-->
-        <!--&lt;!&ndash;</classes>&ndash;&gt;-->
-    <!--&lt;!&ndash;</test>&ndash;&gt;-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
     <!--<test name = "removals">-->
     <!--<classes>-->
-    <!--<class name="TestCases.RemovalsFlows">-->
-    <!--<methods>-->
+        <!--<class name="TestCases.RemovalsFlows">-->
+            <!--<methods>-->
 
 
-    <!--<include name="removalstestCasesHappyFlow"></include>-->
-    <!--<include name="removalForInvalidEmail"></include>-->
-    <!--<include name="removalForInvalidPhoneNumber"></include>-->
-    <!--<include name="removalClickHere"></include>-->
+                <!--<include name="removalstestCasesHappyFlow"></include>-->
+                <!--<include name="removalForInvalidEmail"></include>-->
+                <!--<include name="removalForInvalidPhoneNumber"></include>-->
+                <!--<include name="removalClickHere"></include>-->
 
 
-    <!--</methods>-->
-    <!--</class>-->
+            <!--</methods>-->
+        <!--</class>-->
     <!--</classes>-->
-    <!--</test>-->
+<!--</test>-->
+
+
+    <test name = "MyInfo">
+    <classes>
+    <class name="TestCases.MyinfoFlows">
+    <methods>
+
+    <include name="NegativeCaseForResetPassword" ></include>
+    <include name="updatefields" ></include>
+    <include name="reSetPassword"></include>
 
 
 
-
-    <!--<test name = "MyInfo">-->
-    <!--<classes>-->
-    <!--<class name="TestCases.MyinfoFlows">-->
-    <!--<methods>-->
-
-    <!--<include name="NegativeCaseForResetPassword" ></include>-->
-    <!--<include name="updatefields" ></include>-->
-    <!--<include name="reSetPassword"></include>-->
+    </methods>
+    </class>
+    </classes>
+    </test>
 
 
+    <test name="MyFinance">
 
-    <!--</methods>-->
-    <!--</class>-->
-    <!--</classes>-->
-    <!--</test>-->
+    <classes>
+    <class name="TestCases.MyFinanceFlows">
+    <methods>
+    <include name="MyFinnaceHappyFlowForAddingAccount"></include>
 
-
-    <!--<test name="MyFinance">-->
-
-    <!--<classes>-->
-    <!--<class name="TestCases.MyFinanceFlows">-->
-    <!--<methods>-->
-    <!--<include name="MyFinnaceHappyFlowForAddingAccount"></include>-->
-
-    <!--<include name="deleteCreditCard"></include>-->
-    <!--<include name="negativeCasesForCardNumber"></include>-->
-    <!--<include name="negativeCasesForMonthYear"></include>-->
-    <!--<include name="termOfUse"></include>-->
-    <!--<include name="downloadInvoices"></include>-->
+    <include name="deleteCreditCard"></include>
+    <include name="negativeCasesForCardNumber"></include>
+    <include name="negativeCasesForMonthYear"></include>
+    <include name="termOfUse"></include>
+    <include name="downloadInvoices"></include>
 
 
 
-    <!--</methods>-->
-    <!--</class>-->
-    <!--</classes>-->
-    <!--</test>-->
+    </methods>
+    </class>
+    </classes>
+    </test>
 
     <!--<test name = "Faqs ">-->
     <!--<classes>-->
@@ -204,11 +202,7 @@
 
                     <!--<include name="GreenButtonOnPricingPageFlow"></include>-->
                     <!--<include name="OtherLinkOnpricingpage" ></include>-->
-                    <!--<include name="faqsOfPricingFlows" ></include>-->
-
-
-
-
+                    <!--&lt;!&ndash;<include name="faqsOfPricingFlows" ></include>&ndash;&gt;-->
 
 
                 <!--</methods>-->
@@ -237,24 +231,25 @@
 
 
 
+
     <!--<test name = "StudentStorage ">-->
     <!--<classes>-->
     <!--<class name="TestCases.StudentStorageFlows">-->
     <!--<methods>-->
 
-        <!--<include name="GreenButtonOnPricingPageFlow"></include>-->
+        <!--&lt;!&ndash;<include name="GreenButtonOnPricingPageFlow"></include>&ndash;&gt;-->
 
-        <!--<include name="CratesAddition"></include>-->
-        <!--<include name="CratesCalculatorSubstraction" ></include>-->
+        <!--&lt;!&ndash;<include name="CratesAddition"></include>&ndash;&gt;-->
+        <!--&lt;!&ndash;<include name="CratesCalculatorSubstraction" ></include>&ndash;&gt;-->
 
-        <!--<include name="calculatorFlowsWithAddition"></include>-->
-    <!--<include name="calculatorFlowsWithSubstraction" ></include>-->
+        <!--&lt;!&ndash;<include name="calculatorFlowsWithAddition"></include>&ndash;&gt;-->
+    <!--&lt;!&ndash;<include name="calculatorFlowsWithSubstraction" ></include>&ndash;&gt;-->
 
 
 
-        <!--<include name="TwoPersonAddition"></include>-->
-        <!--<include name="TwoPersonSubstraction" ></include>-->
-        <!--<include name="AllUniversityFlow"></include>-->
+        <!--&lt;!&ndash;<include name="TwoPersonAddition"></include>&ndash;&gt;-->
+        <!--&lt;!&ndash;<include name="TwoPersonSubstraction" ></include>&ndash;&gt;-->
+        <!--&lt;!&ndash;<include name="AllUniversityFlow"></include>&ndash;&gt;-->
         <!--<include name=" CheckAvailabilityFlow"></include>-->
 
 

@@ -48,7 +48,7 @@ public class StudentStorageObjects {
     int r=0;
     public static String response;
     public static By universityButton=By.className("green-btn");
-    public static By universityPageText=By.linkText("Student Storage easy!");
+    public static By universityPageText=By.className("dark");
     public StudentStorageObjects(WebDriver driver,WebDriverWait wait)
 
     {
@@ -280,7 +280,7 @@ public class StudentStorageObjects {
         wait.until(ExpectedConditions.visibilityOfElementLocated(universityButton));
         driver.findElement(universityButton).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(universityPageText));
-        res=driver.findElement(universityButton).getText();
+        res=driver.findElement(universityPageText).getText();
         driver.navigate().back();
 
         return res;
