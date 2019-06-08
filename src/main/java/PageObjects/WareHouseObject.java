@@ -18,7 +18,7 @@ public class WareHouseObject {
 
 
     public static By byHamburger = By.cssSelector("#reactAdmin > div > div:nth-child(3) > header > div.background > button");
-    public static By byWarehouseManagement = By.cssSelector("#reactAdmin > div > div:nth-child(3) > header > div:nth-child(1) > div:nth-child(2) > div:nth-child(12) > a > div > div");
+    public static By byWarehouseManagement =By.linkText("Warehouse Management");
     public static By byWarehouses = By.cssSelector("#page-content > div > div:nth-child(3) > div > div:nth-child(2)");
     public static By byAddWarehouse = By.cssSelector("#page-content > div > div:nth-child(2) > div > div > button");
     public static By byDisplayname = By.name("displayName");
@@ -49,7 +49,7 @@ public class WareHouseObject {
 
     }
     public void Sleep() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(10000);
     }
 
     public void clickHamburger() throws InterruptedException {

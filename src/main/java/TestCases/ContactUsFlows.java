@@ -16,29 +16,29 @@ public class ContactUsFlows extends Main {
     public String email = "iqra.bibi@venturedive.com";
     public String invalidEmail="abc123";
     public String invalidPhoneNumber="abcdeshg";
-    public String phoneNumber = "03218529696";
+    public String phoneNumber = "3218529696";
+    public String countryName="Cape Verde (Kabu Verdi)";
     public String message = "test message";
     public String inquiryOptions = "Removals enquiry";
     public String actualForContactUsHappyFlow;
     public String expectedForContactUsHappyFlow="Thank you for your enquiry. We will get back to you within one business day.";
     public String expectedForContactUsInvalidEmail="Email Address is invalid";
     public String actualForContactUsInvalidEmail;
-    public String expectedForContactUsInvalidPhoneNumber="Invalid format.";
+    public String expectedForContactUsInvalidPhoneNumber="Phone format/length is not valid";
     public String actualForContactUsInvalidPhoneNumber;
     public int expectedForcontactUsWithEmptyFields=6;
     public int actualForcontactUsWithEmptyFields;
 
     @Test
 
-    public  void contactUsHappyFlow()
-    {
+    public  void contactUsHappyFlow() throws InterruptedException {
 
 //
         Contact_Us_Object.openContactUsPage(Url);
 //        Thread.sleep(2000);
 
 
-        Contact_Us_Object.enterDataForContactUsHappyFlow(firstName,lastName,email,phoneNumber,message,inquiryOptions);
+        Contact_Us_Object.enterDataForContactUsHappyFlow(firstName,lastName,email,countryName,phoneNumber,message,inquiryOptions);
         Contact_Us_Object.submitForm();
         actualForContactUsHappyFlow=Contact_Us_Object.responseForHappyFlow();
         Assert.assertEquals(actualForContactUsHappyFlow,expectedForContactUsHappyFlow);

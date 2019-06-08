@@ -8,13 +8,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 /**
  * Created by VenD on 4/16/2018.
  */
 public class BusinessPageObjects {
 
     WebDriver driver;
-    //static WebDriverWait wait;
+    WebDriverWait wait;
 
     public  String firstName;
     public  String lastname;
@@ -31,20 +33,22 @@ public class BusinessPageObjects {
     public static By Name=By.name("firstName");
     public static By lName=By.name("lastName");
     public static By Email=By.name("email");
-    public static By PhoneNumber=By.name("phoneNumber");
+    public static By PhoneNumber=By.name("nationalNumber");
     public static By message=By.name("message");
     public static By clickSubmit=By.id("drop-note-submit");
     public static By actualText=By.className("modal-body");
     // public static By crossButton=By.xpath("//*[@id=\"dropNoteSubmitModal\"]/div/div/div[1]/button/span");
     public static By crossButton=By.className("close");
     public static By invalidEmailTextDetection=By.id("email-error");
-    public static By invalidPhoneNumberTextDetection=By.id("phoneNumber-error");
+    public static By invalidPhoneNumberTextDetection=By.id("businessNum-error");
     public static By dropUsNoteSection=By.id("get-in-touch-form");
+    public static By upArrowForBusiness=By.className("iti-arrow");
+    public static By countryList=By.id("country-listbox");
 
-    public BusinessPageObjects(WebDriver driver)
-
+    public BusinessPageObjects(WebDriver driver, WebDriverWait wait)
     {
         this.driver=driver;
+        this.wait=wait;
         //this.wait=wait;
     }
     public void openBusinessPage(String url) throws InterruptedException
@@ -71,7 +75,7 @@ public class BusinessPageObjects {
         driver.findElement(getInTouchButton).click();
         Thread.sleep(1000);
     }
-    public  void enterBusinessDetailForHappyFlow(String firstName,String lastname,String email,String phoneNumber,String description) throws InterruptedException
+    public  void enterBusinessDetailForHappyFlow(String firstName,String lastname,String email,String countryName,String phoneNumber,String description) throws InterruptedException
 
     {
         // wait.until(ExpectedConditions.visibilityOfElementLocated(dropUsNoteSection));
@@ -79,7 +83,8 @@ public class BusinessPageObjects {
         getfirstName(firstName);
         getlastName(lastname);
         getemail(email);
-        getphoneNumber(phoneNumber);
+        enterCountryName(countryName);
+        enterNumber(phoneNumber);
         getdescription(description);
 
     }
@@ -88,9 +93,20 @@ public class BusinessPageObjects {
         getfirstName(firstName);
         getlastName(lastname);
         getemail(email);
-        getphoneNumber(phoneNumber);
+//   getphoneNumber(phoneNumber);
+        enterNumber(phoneNumber);
     }
 
+    public void enterBusinessDetailsForInValidPhoenNumber(String firstName,String lastname,String email,String phoneNumber, String description) throws InterruptedException {
+        getfirstName(firstName);
+        getlastName(lastname);
+        getemail(email);
+//   getphoneNumber(phoneNumber);
+        enterNumber(phoneNumber);
+        getdescription(description);
+
+
+    }
 
     public  void getfirstName(String firstName) throws InterruptedException
     {
@@ -114,11 +130,59 @@ public class BusinessPageObjects {
         Thread.sleep(2000);
 
     }
-    public  void getphoneNumber(String phoneNumber) throws InterruptedException
-    {
-        driver.findElement(PhoneNumber).sendKeys(phoneNumber);
-        Thread.sleep(2000);
+//    public  void getphoneNumber(String phoneNumber) throws InterruptedException
+//    {
+//        driver.findElement(PhoneNumber).sendKeys(phoneNumber);
+//        Thread.sleep(2000);
+//
+//    }
 
+    public void enterCountryName(String countryName) throws InterruptedException {
+        driver.findElement(upArrowForBusiness).click();
+        WebElement elementCountryList = driver.findElement(countryList);
+        int lengthOfCountryName = countryName.length();
+        System.out.print("\n" + lengthOfCountryName + "\n");
+        List<WebElement> countryNameInfo = elementCountryList.findElements(By.tagName("li"));
+
+        System.out.print("\n" + countryNameInfo + "\n" +
+                "");
+        //stairsInfo.get(stairsNumber).click();
+
+        for (WebElement CountryOption : countryNameInfo) {
+
+            String NameOfCountryInList = CountryOption.getText();
+            System.out.print("\n" + CountryOption.getText() + "\n" +
+                    "");
+            int lengthOfCountryNameInList = NameOfCountryInList.length();
+            System.out.print("\n" + lengthOfCountryNameInList + "\n");
+            if (lengthOfCountryNameInList >= lengthOfCountryName) {
+                String afterSplittingCountryNameInList = NameOfCountryInList.substring(0, lengthOfCountryName);
+                //substring(lengthOfCountryNameInList - lengthOfCountryName);
+                // substring(NameOfCountryInList.length(),lengthOfCountryName);
+                System.out.print("\n" + afterSplittingCountryNameInList + "\n");
+
+
+                if (lengthOfCountryName == afterSplittingCountryNameInList.length() && afterSplittingCountryNameInList.equals(countryName)) {
+                    System.out.print("\n" + CountryOption + "\n");
+                    CountryOption.click();
+                    //Thread.sleep(2000);
+                    //waiting();
+                    break;
+
+                }
+            }
+        }
+
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(byEmail));
+//        driver.findElement(byEmail).sendKeys(email);
+    }
+
+
+    public void enterNumber(String number)
+    {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(PhoneNumber));
+        driver.findElement(PhoneNumber).sendKeys(number);
     }
     public  void getdescription(String description) throws InterruptedException
     {

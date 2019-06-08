@@ -15,7 +15,7 @@ public class MyinfoObjects {
     WebDriver driver;
     // WebDriverWait wait;
     // LoginObjects lo;
-    public static By infoLink= By.cssSelector("body > section > div > div > div > div > div.col-lg-3.col-md-3.col-sm-3.col-xs-3.hidden-xs.bhoechie-tab-menu > div > a:nth-child(7) > span");
+    public static By infoLink= By.cssSelector("body > section > div > div > div > div > div.col-lg-3.col-md-3.col-sm-3.col-xs-3.hidden-xs.bhoechie-tab-menu > div > a:nth-child(6) > span");
     public static By resetLink=By.id("changePasswordSection");
     public static By newPasswordField=By.id("password");
     public static By rePasswordField=By.id("confirmPassword");
@@ -23,7 +23,7 @@ public class MyinfoObjects {
     public String getInvalidPasswordResponse;
     public static By invalidPasswordError=By.id("confirmPassword-error");
     public static By firstName=By.id("firstName");
-    public static By phoneNumber=By.id("phone");
+    public static By phoneNumber=By.name("nationalNumber");
     public String updateResponseMessage;
     public static By updateResponse=By.id("successMessage");
     public String getResetPasswordresponse;

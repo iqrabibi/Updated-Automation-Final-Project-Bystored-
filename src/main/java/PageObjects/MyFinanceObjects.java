@@ -18,7 +18,7 @@ public class MyFinanceObjects {
     WebDriver driver;
     // WebDriverWait wait;
     // LoginObjects lo;
-    public static By financelink=By.cssSelector("body > section > div > div > div > div > div.col-lg-3.col-md-3.col-sm-3.col-xs-3.hidden-xs.bhoechie-tab-menu > div > a:nth-child(8) > span");
+    public static By financelink=By.cssSelector("body > section > div > div > div > div > div.col-lg-3.col-md-3.col-sm-3.col-xs-3.hidden-xs.bhoechie-tab-menu > div > a:nth-child(7) > span");
 
     public static By addFinanceButton=By.id("addNewCard");
     public static By CardHolderName=By.id("cardName");
@@ -262,7 +262,64 @@ public class MyFinanceObjects {
     public void downloadClick()throws InterruptedException
     {
         Thread.sleep(2000);
+        String parentHandle3 = driver.getWindowHandle(); // get the current window handle
+        System.out.println(parentHandle3);
         driver.findElement(downloadinvoices).click();
+
+
+
+
+                     //Prints the parent window handle
+       // driver.findElement(standrdLiability).click();//Assuming u are clicking on a link which opens a new browser window
+        Thread.sleep(3000);                              //Clicking on this window
+        for (String winHandle : driver.getWindowHandles()) { //Gets the new window handle
+            System.out.println(winHandle);
+
+            driver.switchTo().window(winHandle);
+            a=a+1;
+            // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+        }
+        driver.close();                                 // close newly opened window when done with it
+        driver.switchTo().window(parentHandle3);
+        Thread.sleep(3000);
+
+
+
+//        String parentHandle2 = driver.getWindowHandle(); // get the current window handle
+//        System.out.println(parentHandle2);               //Prints the parent window handle
+//
+//        driver.findElement(standrdLiability).click();//Assuming u are clicking on a link which opens a new browser window
+//
+//        Thread.sleep(5000);                              //Clicking on this window
+//        for (String winHandle : driver.getWindowHandles()) { //Gets the new window handle
+//            System.out.println(winHandle);
+//            driver.switchTo().window(winHandle);        // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+//        }
+
+
+
+//Now your driver works on the current new handle
+//Do some work here.....
+//Time to go back to parent window
+        // close newly opened window when done with it
+
+
+
+
+
+
+        // driver.navigate().to("http://qa1.bystored.com/myStored/finance");
+        // driver.navigate().back();
+
+
+
+
+
+
+
+
+
+
 
     }
 

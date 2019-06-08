@@ -24,11 +24,12 @@ public class InitMethods {
     public static String SheetName=appConfig.getSheetName();
     public static String adminPanelQa1URL=appConfig.getadminPanelQa1URL();
 
+    public static String adminPanelStageURL=appConfig.getadminPanelStageURL();
 
 
 
     public static LoginObjects Login_Object=new LoginObjects(driver);
-    public static BusinessPageObjects Business_Object= new BusinessPageObjects(driver);
+    public static BusinessPageObjects Business_Object= new BusinessPageObjects(driver,wait);
     public static RemovalsObjects Removals_Object=new RemovalsObjects(driver);
     public static MyFinanceObjects My_Finanace_Object=new MyFinanceObjects(driver);
     public static MyinfoObjects My_Info_Object=new MyinfoObjects(driver);
@@ -40,6 +41,7 @@ public class InitMethods {
     public static WareHouseObject warehouse_Object=new WareHouseObject(driver,wait);
     public static PricingPageObjects PricingObject=new PricingPageObjects(driver,wait);
     public static StudentStorageObjects StudentObject=new StudentStorageObjects(driver,wait);
+    public static WizardStep1Objects Wizard1Object=new WizardStep1Objects(driver,wait);
 
 
     public ExtentTest test;

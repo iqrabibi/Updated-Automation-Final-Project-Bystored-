@@ -20,16 +20,17 @@ public class RemovalsFlows extends Main{
     // RemovalsObjects ro;
     //String url=getUrl();
     public String name="iqra";
-    public String email="soniaalisiddikki@gmail.com";
+    public String email="iqra.bibi@venturedive.com";
     public String invalidEmail="yahoo.com";
+    public String countryName="Cape Verde (Kabu Verdi)";
     public String phonenumber="034569865342";
     public String invalidPhoneNumber="cfgvhbn12352@";
     public boolean actualForRemovalhappyFlow;
     public String expectedForRemovalHappyFlow="Full Name Please";
     public String actualForInvalidEmailForRemovals;
-    public String expectedForInvalidEmailRemovals="Please enter a valid email address.";
+    public String expectedForInvalidEmailRemovals="Please enter a valid email";
     public String actualForInvalidPhoneNumberForRemovals;
-    public String expectedForInvalidPhoneNumberForRemovals="Invalid format.";
+    public String expectedForInvalidPhoneNumberForRemovals="Phone format/length is not valid";
     public boolean actualForClickHere;
 
 
@@ -42,7 +43,7 @@ public class RemovalsFlows extends Main{
 
         // ro = new RemovalsObjects(driver);
         Removals_Object.openBrowser(Url);
-        Removals_Object.enterDataforHappyFlow(name, email, phonenumber);
+        Removals_Object.enterDataforHappyFlow(name, email,countryName,phonenumber);
         Thread.sleep(2000);
         actualForRemovalhappyFlow = Removals_Object.submit();
         Thread.sleep(3000);

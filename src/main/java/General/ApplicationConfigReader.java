@@ -78,6 +78,15 @@ public class ApplicationConfigReader {
         return adminPanelQa1URL;
     }
 
+    @Property(value = "adminPanelStageURL")
+    public String adminPanelStageURL;
+
+    public String getadminPanelStageURL() {
+
+        return adminPanelStageURL;
+    }
+
+
 
 
 }

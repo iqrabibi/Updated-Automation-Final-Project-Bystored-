@@ -25,7 +25,7 @@ public class MyinfoFlows extends Main {
     public String actualForInvalidPassword;
     public String expectedForInvalidPassword="Passwords do not match";
     public String name="Aroma Gul";
-    public String phonenumber="021 33698754";
+    public String phonenumber="33698754";
     public String expectedForUpdate="Profile Updated Successfully";
     public String actualForUpdate;
     public String actualForResetPassword;

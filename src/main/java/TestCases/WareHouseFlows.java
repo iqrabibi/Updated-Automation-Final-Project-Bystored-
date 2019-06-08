@@ -43,8 +43,8 @@ public class WareHouseFlows extends Main{
 
         warehouse_Object.openLoginPage(email,passWord);
         warehouse_Object.Sleep();
-        warehouse_Object.clickHamburger();
-        warehouse_Object.Sleep();
+//        warehouse_Object.clickHamburger();
+//        warehouse_Object.Sleep();
         warehouse_Object.clickWarehouse();
         warehouse_Object.Sleep();
         warehouse_Object.warehouses();

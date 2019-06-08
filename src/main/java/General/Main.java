@@ -18,6 +18,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
 
 import java.lang.reflect.Method;
+import java.sql.SQLException;
 //import static General.InitMethods.Environment;
 
 //import static General.InitMethods.Url;
@@ -32,6 +33,12 @@ public class Main {
     public static ExtentReports extentReports;
     public static ExtentTest extentTest;
     //public  String  url;
+//    public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+//    public static final String DB_URL = "jdbc:mysql://bystoredstage.cu7blggvl4kd.eu-west-2.rds.amazonaws.com:3306/bystored_QA1";
+//
+//    public static final String USER = "bystored";
+//    public static final String PASS = "bystored";
+
 
 
 //    public void getUrl()
@@ -41,7 +48,7 @@ public class Main {
 
 
     @BeforeSuite
-    public void startReport() {
+    public void startReport() throws SQLException {
         extentReports = new ExtentReports(System.getProperty("user.dir") + "/test-output/BystoredAutomation.html", true);
         extentReports.addSystemInfo("Host Name", "Bystored")
                 .addSystemInfo("Environment", "Automation Testing")
@@ -55,7 +62,12 @@ public class Main {
         //driver = new FirefoxDriver();
         wait= new WebDriverWait(driver,15);
 
+
+        //Db connection
+//        DBConnection.connectDb();
+
     }
+
 
 //    @BeforeTest
 //    public  static  void getDriver()
@@ -117,11 +129,13 @@ public class Main {
 //    }
 
     @AfterSuite
-    public void endReport() {
+    public void endReport() throws SQLException {
         driver.close();
         extentReports.flush();
         extentReports.close();
+//        DBConnection.closeDB();
     }
+
 
 
 }

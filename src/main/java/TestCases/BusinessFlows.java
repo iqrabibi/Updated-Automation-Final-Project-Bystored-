@@ -1,11 +1,14 @@
 package TestCases;
 
+import General.DBConnection;
 import General.Main;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 //import static General.InitMethods.Url;
 
+
+import java.sql.SQLException;
 
 import static General.InitMethods.Business_Object;
 import static General.InitMethods.Url;
@@ -20,7 +23,8 @@ public class BusinessFlows extends Main{
     public String firstName="iqra";
     public String lastName="bibi";
     public String email="iqrabibi25@yahoo.com";
-    public String phoneNumber="0345935256310623";
+    public String phoneNumber = "3218529696";
+    public String countryName="Cape Verde (Kabu Verdi)";
     public String description="This is my message";
     public String invalidEmail="iqrayahoo.com";
     public String invalidPhoneNumber="eeeeeeeee------";
@@ -29,8 +33,13 @@ public class BusinessFlows extends Main{
     public String actualForInvalidPhoneNumber;
     public String expectedForBusiness="Thank you for your enquiry. We will get back to you within one business day.";
     public String expectedForInvalidEmail="Email Address is invalid";
-    public String expectedForInvalidPhoneNumber="Please enter a valid number.";
+    public String expectedForInvalidPhoneNumber="Phone format/length is not valid";
 
+
+    @Test
+    public void sample() throws SQLException {
+        DBConnection.GetStairsInfo("utm50@bystored.com");
+    }
 
     // @Parameters({ "firstName" ,"lastName","email","phoneNumber","description"})
     @Test
@@ -43,7 +52,7 @@ public class BusinessFlows extends Main{
         Thread.sleep(2000);
         Business_Object.goToForm();
         Thread.sleep(2000);
-        Business_Object.enterBusinessDetailForHappyFlow(firstName,lastName,email,phoneNumber,description);
+        Business_Object.enterBusinessDetailForHappyFlow(firstName,lastName,email,countryName,phoneNumber,description);
         Thread.sleep(2000);
         try {
             actualForBusiness = Business_Object.submitButton();
@@ -104,7 +113,7 @@ public class BusinessFlows extends Main{
         Business_Object.goToForm();
         Thread.sleep(2000);
 
-        Business_Object.enterBusinessDetailForHappyFlow(firstName,lastName,email,invalidPhoneNumber,description);
+        Business_Object.enterBusinessDetailsForInValidPhoenNumber(firstName,lastName,email,invalidPhoneNumber,description);
         Thread.sleep(2000);
         actualForInvalidPhoneNumber=Business_Object.invalidPhoneNumberText();
         Thread.sleep(2000);

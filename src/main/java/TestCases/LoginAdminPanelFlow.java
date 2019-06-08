@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static General.InitMethods.adminPanelQa1URL;
+import static General.InitMethods.adminPanelStageURL;
 import static General.InitMethods.login_Admin_Panel_Object;
 
 /**
@@ -24,13 +25,14 @@ public class LoginAdminPanelFlow extends Main {
     public void loginFunc() throws InterruptedException {
 
 
-        login_Admin_Panel_Object.openAdminPanelLoginPage(adminPanelQa1URL);
+        login_Admin_Panel_Object.openAdminPanelLoginPage(adminPanelStageURL);
         login_Admin_Panel_Object.enterLoginCredentials(email, pwd);
         login_Admin_Panel_Object.clickLogin();
         expected_result=login_Admin_Panel_Object.SuccessfulSubmit();
         login_Admin_Panel_Object.Sleep();
 //        login_Admin_Panel_Object.clickLogoutButton();
-//        login_Admin_Panel_Object.Sleep();
+
+        login_Admin_Panel_Object.Sleep();
         System.out.print(expected_result + "");
         Assert.assertTrue(expected_result);
 
@@ -42,7 +44,7 @@ public class LoginAdminPanelFlow extends Main {
     public void loginFuncInvalid() throws InterruptedException {
 
 
-        login_Admin_Panel_Object.openAdminPanelLoginPage(adminPanelQa1URL);
+        login_Admin_Panel_Object.openAdminPanelLoginPage(adminPanelStageURL);
         login_Admin_Panel_Object.enterLoginCredentials(invalidEmail, pwd);
         expectedForInvalidEmail = login_Admin_Panel_Object.clickSubmitForInvalid();
          login_Admin_Panel_Object.refrech();

@@ -16,7 +16,7 @@ public class PricingPageObjects {
     public static By pricingOpentext= By.id("convenience");
     public static By greenReserveButton=By.linkText("RESERVE A STORAGE UNIT NOW");
     public static By greenRemovalButton=By.id("findUnit");
-    public static By afterGreenButtonClick=By.className("heading");
+    public static By afterGreenButtonClick=By.className("hero-content");
     public static By afterRemovalClick=By.className("d-inline-block");
     public static By remoavlServices=By.linkText("removal service");
     public static By longTermStorage=By.linkText("Long Term Storage");

@@ -33,7 +33,7 @@ public class LoginAdminPanelObjects {
     }
     public void Sleep() throws InterruptedException
     {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
     }
     public void refrech()

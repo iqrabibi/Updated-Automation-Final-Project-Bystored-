@@ -23,7 +23,7 @@ public class ContactUsObjects {
     public static  By byFirstName = By.name("firstName");
     public static  By byLastName = By.name("lastName");
     public static By byEmail = By.name("email");
-    public static   By byPhoneNumber = By.name("phoneNumber");
+    public static   By byPhoneNumber = By.name("nationalNumber");
     public static  By byMessage = By.name("message");
     public static  By bySubmit = By.id("contact-us-submit");
     public static  By byModal=By.className("modal-body");
@@ -31,7 +31,7 @@ public class ContactUsObjects {
     public static By closeButton=By.className("close");
     public static  By modal = By.cssSelector("#contactUsSubmitModal > div > div");
     public static By emailError=By.id("email-error");
-    public static By phoneNumberError=By.id("phoneNumber-error");
+    public static By phoneNumberError=By.id("cuNum-error");
 
     public static   String responseOfContactUsHappyFlow;
     public static String responseOfContactUsInvalidEmail;
@@ -40,7 +40,8 @@ public class ContactUsObjects {
     public static By lastNameError=By.id("lastName-error");
     public static By messageError=By.id("message-error");
     public static By selectedInquiryError=By.id("selectedInquiry-error");
-
+    public static By upArrow=By.className("iti-arrow");
+    public static By countryList=By.id("country-listbox");
 
     public static int count=0;
 
@@ -71,11 +72,11 @@ public class ContactUsObjects {
         driver.manage().window().maximize();
 
     }
-    public void enterDataForContactUsHappyFlow(String fName, String lName, String email, String number ,String message,String option )
-    {
+    public void enterDataForContactUsHappyFlow(String fName, String lName, String email,String countryName, String number ,String message,String option ) throws InterruptedException {
         enterFName(fName);
         enterLName(lName);
         enterEmail(email);
+        enterCountryName(countryName);
         enterNumber(number);
         enterOption(option);
         enterMessage(message);
@@ -116,6 +117,50 @@ public class ContactUsObjects {
     {
         wait.until(ExpectedConditions.visibilityOfElementLocated(byEmail));
         driver.findElement(byEmail).sendKeys(email);
+    }
+
+    public void enterCountryName(String countryName) throws InterruptedException {
+        driver.findElement(upArrow).click();
+        WebElement elementCountryList = driver.findElement(countryList);
+        int lengthOfCountryName=countryName.length();
+        System.out.print("\n"+lengthOfCountryName+"\n");
+        List<WebElement> countryNameInfo = elementCountryList.findElements(By.tagName("li"));
+
+        System.out.print("\n" + countryNameInfo + "\n" +
+                "");
+        //stairsInfo.get(stairsNumber).click();
+
+
+
+
+        for(WebElement CountryOption: countryNameInfo) {
+
+            String NameOfCountryInList=CountryOption.getText();
+            System.out.print("\n" + CountryOption.getText() + "\n" +
+                    "");
+            int lengthOfCountryNameInList=NameOfCountryInList.length();
+            System.out.print("\n" + lengthOfCountryNameInList + "\n");
+            if(lengthOfCountryNameInList>=lengthOfCountryName)
+            {
+                String afterSplittingCountryNameInList = NameOfCountryInList.substring(0,lengthOfCountryName);
+                        //substring(lengthOfCountryNameInList - lengthOfCountryName);
+                // substring(NameOfCountryInList.length(),lengthOfCountryName);
+                System.out.print("\n" + afterSplittingCountryNameInList + "\n");
+
+
+
+                if (lengthOfCountryName == afterSplittingCountryNameInList.length() && afterSplittingCountryNameInList.equals(countryName) ) {
+                    System.out.print("\n" + CountryOption + "\n");
+                    CountryOption.click();
+                //Thread.sleep(2000);
+                    //waiting();
+                    break;
+
+                }
+            }
+        }
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(byEmail));
+//        driver.findElement(byEmail).sendKeys(email);
     }
 
 
@@ -165,7 +210,7 @@ public class ContactUsObjects {
     }
     public String responseForInvalidPhoneNumber()
     {
-        wait.until(ExpectedConditions.textToBe(phoneNumberError,"Invalid format."));
+        wait.until(ExpectedConditions.textToBe(phoneNumberError,"Phone format/length is not valid"));
         responseOfContactUsInvalidPhoneNumber=driver.findElement(phoneNumberError).getText();
         return  responseOfContactUsInvalidPhoneNumber;
     }
