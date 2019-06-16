@@ -2,6 +2,7 @@ package PageObjects;
 
 import General.DBConnection;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -54,19 +55,19 @@ public class WizardStep1Objects {
     public static By creditcardCVV=By.id("cvv");
     public static By termAggrement=By.id("termsAgreement");
     public static By orderConfirmation=By.id("stage3");
-    public static By confirmationTick=By.className("confirmation-tick");
-    public static By hamburgerClick= By.xpath("/html/body/header/div/nav/div[1]/button/img");
-    public static By hamburgerLinks=By.xpath("//*[@id=\"new-header-links\"]/li[1]");
+    public static By confirmationTick=By.id("orderConfirmationBtn");
+    public static By hamburgerClick= By.xpath("/html/body/header/div/nav/div[1]/button");
+    public static By hamburgerLinks=By.xpath("/html/body/header/div/nav/div[2]");
     public static By hamburgerMyAccount=By.xpath("//*[@id=\"new-header-links\"]/li[8]");
     public static By aftermyAccountText=By.className("list-group");
-    public static By myInfoClick=By.xpath("/html/body/section[1]/div/div/div/div/div[1]/div/a[7]");
+    public static By myInfoClick=By.xpath("/html/body/section[1]/div/div/div/div/div[1]/div/a[6]");
     public static By FnameId=By.id("firstName");
     public static By resetPasswordClick=By.id("changePasswordSection");
     public static By passwordField=By.id("password");
     public static By confirmPassword=By.id("confirmPassword");
     public static By clickOnSetPassword=By.id("profileSubmit");
     public static By resetPasswordMessage=By.id("successMessage");
-    public static By logoutButton=By.xpath("//*[@id=\"new-header-links\"]/li[9]");
+    public static By logoutButton=By.xpath("//*[@id=\"new-header-links\"]/li[11]");
     public static By afterLogout=By.id("email");
     public static By signInlink=By.linkText("Sign in here");
     public static By signInModal=By.className("modal-body");
@@ -86,7 +87,18 @@ public class WizardStep1Objects {
     public static By addressUnavailabilityModals=By.id("custom-timeslots-form");
     public static By alreadyExistOrderMessage=By.id("paymentFailureModalText");
     public static boolean alreadyExistOrderMsg;
-    public static By alreadyExistOrderClose=By.className("close");
+    public static By alreadyExistOrderClose=By.xpath("//*[@id=\"paymentFailureModal\"]/div/div/div[1]/button/span");
+    public static Boolean reponseOfInvalidNumber;
+    public static By invalidNumberMessage=By.id("pNumber-error");
+    public static By clickBlankArea=By.xpath("//*[@id=\"registerForm\"]/div[3]/div[2]/div/div[2]/a/img");
+    public static By invalidformLink=By.id("notAvailable");
+    public static By postcode=By.id("postcode-unavailable-postcode");
+    public static By emailOnAddress=By.id("postcode-unavailable-email");
+    public static By PostCodePhoneNumber=By.id("postcode-unavailable-phone");
+    public static By submitOnInvalidAddressForm=By.id("submit-postcodeunavailable-form");
+    public static By responseOfInvalidAddress=By.id("postcode-unavailable-success");
+    public static Boolean InvalidAddressResponse;
+
     public static ArrayList<String> starisInfo;
 
 
@@ -218,6 +230,7 @@ public class WizardStep1Objects {
 
     }
 
+
     public void notEqualMonth(String monthName) throws InterruptedException
     {
         driver.findElement(selectorForMonth).click();
@@ -231,7 +244,7 @@ public class WizardStep1Objects {
             if(opt.getText().equals(monthName))
             {
                 opt.click();
-              Thread.sleep(3000);
+              Thread.sleep(2000);
                waiting();
                break;
 
@@ -277,7 +290,7 @@ public class WizardStep1Objects {
             if(opt2.getText().equals(""+yearTaken))
             {
                 opt2.click();
-                Thread.sleep(3000);
+                Thread.sleep(2000);
                 waiting();
                 break;
 
@@ -317,7 +330,7 @@ public class WizardStep1Objects {
 
         //wait.until(ExpectedConditions.visibilityOfElementLocated(datePickerVisible));
 
-       Thread.sleep(15000);
+       Thread.sleep(12000);
 
 
         Calendar calendar = Calendar.getInstance();
@@ -407,6 +420,14 @@ public class WizardStep1Objects {
 
 
     }
+    public void step2DataEnteringForInvalidPhonenUmber(String email, String phoneNumber)
+    {
+        //enterName(name);
+        enterPhoneNumber(phoneNumber);
+        enterEmail(email);
+
+    }
+
 
     public void goToStep3()
     {
@@ -445,18 +466,20 @@ public class WizardStep1Objects {
     public void termsOfAggrement()
     {
 
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(termAggrement) );
+
         driver.findElement(termAggrement).click();
     }
 
 
-    public void step3DataEnteringForHappyFlow(String cardName, String cardNumber, String cardMonth, String cardYear,String cardCvv)
-    {
+    public void step3DataEnteringForHappyFlow(String cardName, String cardNumber, String cardMonth, String cardYear,String cardCvv) throws InterruptedException {
 
         enterCardname(cardName);
         enterCardnumber(cardNumber);
         enterCardMonth(cardMonth);
         enterCardYear(cardYear);
         enterCardCvv(cardCvv);
+        Thread.sleep(2000);
         termsOfAggrement();
     }
 
@@ -471,6 +494,14 @@ public class WizardStep1Objects {
     {
        orderHappyFlowResponse= driver.findElement(confirmationTick).isDisplayed();
         return orderHappyFlowResponse;
+    }
+
+    public void clcikOnPostPayment()
+
+    {
+        driver.findElement(confirmationTick).click();
+       // wait.until(ExpectedConditions.visibilityOfElementLocated(hamburgerClick));
+
     }
 
     public void clickHamburger()
@@ -507,6 +538,7 @@ public class WizardStep1Objects {
         driver.findElement(clickOnSetPassword).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(resetPasswordMessage));
     }
+
     public void ClickLogout()
     {
 
@@ -561,6 +593,11 @@ public class WizardStep1Objects {
         return responseOfInvalidEmail;
     }
 
+    public boolean responseOfInvalidPhoenNumber()
+    {
+        reponseOfInvalidNumber=driver.findElement(invalidNumberMessage).isDisplayed();
+        return reponseOfInvalidNumber;
+    }
     public void ClickOnTimeSlotsUnavailable()
     {
 
@@ -636,5 +673,57 @@ public class WizardStep1Objects {
         return starisInfo;
     }
 
+
+    public void clickOnArea()
+    {
+        driver.findElement(clickBlankArea).click();
+
+    }
+    public void invalidaddressFormLink()
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(invalidformLink));
+        driver.findElement(invalidformLink).click();
+
+
+    }
+
+    public void enterDataForAddressUnavailable(String email, String postalCode, String phoneNumber)
+    {
+        emailOnAddressEnter(email);
+        postcodeEnter(postalCode);
+        phoneneumberOnAddress(phoneNumber);
+
+    }
+
+    public void postcodeEnter(String postalcode)
+    {
+
+
+        driver.findElement(postcode).sendKeys(postalcode);
+    }
+
+    public void emailOnAddressEnter(String email)
+    {
+
+        driver.findElement(emailOnAddress).sendKeys(email);
+    }
+    public void phoneneumberOnAddress(String phoenNumber)
+    {
+
+        driver.findElement(PostCodePhoneNumber).sendKeys(phoenNumber);
+    }
+
+    public void submitOnAddressUnavailable()
+    {
+        driver.findElement(submitOnInvalidAddressForm).click();
+
+    }
+    public Boolean successOfInvalidAddress()
+    {
+
+        InvalidAddressResponse =driver.findElement(responseOfInvalidAddress).isDisplayed();
+        return InvalidAddressResponse;
+
+    }
 }
 

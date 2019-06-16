@@ -272,22 +272,24 @@
 
 
 
-    <!--<test name = "WizardStep1">-->
-        <!--<classes>-->
-            <!--<class name="TestCases.WizardStep1Testcases">-->
-                <!--<methods>-->
+    <test name = "WizardStep1">
+        <classes>
+            <class name="TestCases.WizardStep1Testcases">
+                <methods>
 
-                    <!--&lt;!&ndash;<include name="WizardStep1HappyFlow"></include>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<include name="LoginForExistingUser"></include>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<include name="inValidEmail"></include>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<include name="timeSlotsAvaialble"></include>&ndash;&gt;-->
+                    <!--<include name="WizardStep1HappyFlow"></include>-->
+                    <!--<include name="LoginForExistingUser"></include>-->
+                    <!--<include name="inValidEmail"></include>-->
+                    <include name="invalidNumber"></include>
+                    <!--<include name="timeSlotsAvaialble"></include>-->
                     <!--<include name="alreadyExistingOrder"></include>-->
 
 
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+
+                </methods>
+            </class>
+        </classes>
+    </test>
 
 
 </suite>

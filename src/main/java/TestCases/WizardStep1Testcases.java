@@ -22,14 +22,16 @@ public class WizardStep1Testcases extends Main {
     public String stairsNumber="2nd floor";
     public String packingNumber="No, I don't want packing assistance";
     public String startAddress="sw6 6af";
+    public String invalidAdddress="nazimabad";
     public int addressList=0;
     public int month=5;
     public String monthName="Jun";
-    public int year=2022;
-    public int date=25;
+    public int year=2023;
+    public int date=27;
     public String name="Test";
     public String email;
     public String phoenNumber="0345296853426";
+    public String invalidPhoneNumber="532156645623525632156";
     public String nameOnCard="test";
     public String cardnumber="4242424242424242";
     public String cardMonth;
@@ -47,6 +49,9 @@ public class WizardStep1Testcases extends Main {
     public boolean expectedForAddress=true;
     public boolean actualForAlreadyExistOrder;
     public boolean expectedForAlreadyExistOrder=true;
+    public boolean actualForInvalidPhoneNumber;
+    public boolean expectedForInvalidNumber=true;
+
     public ArrayList<String> actualForStairInfo;
 
     public int randomNumber()
@@ -124,11 +129,15 @@ public class WizardStep1Testcases extends Main {
         Wizard1Object.goToStep3();
         Wizard1Object.waiting();
         Wizard1Object.step3DataEnteringForHappyFlow(nameOnCard,cardnumber,"0"+currentMonth(),cardyear,cardCvv);
+        Wizard1Object.waiting();
         Wizard1Object.orderConfirmation();
         Wizard1Object.waiting();
 
         ActualreponseforHappyFlow=Wizard1Object.orderHappyFlowResponse();
         Wizard1Object.waiting();
+        Wizard1Object.clcikOnPostPayment();
+        Wizard1Object.waiting();
+
         Wizard1Object.clickHamburger();
         Wizard1Object.waiting();
         Wizard1Object.ClickLogout();
@@ -231,12 +240,19 @@ public class WizardStep1Testcases extends Main {
 //        Wizard1Object.step2DataEnteringForVlaidData(name,email,phoenNumber);
         Wizard1Object.waiting();
         Wizard1Object.goToStep3();
+        Wizard1Object.waiting();
         Wizard1Object.step3DataEnteringForHappyFlow(nameOnCard,cardnumber,"0"+currentMonth(),cardyear,cardCvv);
+        Wizard1Object.waiting();
         Wizard1Object.orderConfirmation();
         Wizard1Object.waiting();
 
+       // ActualreponseforHappyFlow=Wizard1Object.orderHappyFlowResponse();
         ActualreponseforHappyFlow=Wizard1Object.orderHappyFlowResponse();
         Wizard1Object.waiting();
+        Wizard1Object.clcikOnPostPayment();
+        Wizard1Object.waiting();
+
+
         Wizard1Object.clickHamburger();
         Wizard1Object.waiting();
         Wizard1Object.ClickLogout();
@@ -315,7 +331,8 @@ public class WizardStep1Testcases extends Main {
 
 
     @Test
-    public void alreadyExistingOrder() throws InterruptedException {
+    public void alreadyExistingOrder() throws InterruptedException
+    {
 
         Wizard1Object.openLandingpage(Url);
         Wizard1Object.waiting();
@@ -343,6 +360,7 @@ public class WizardStep1Testcases extends Main {
         Wizard1Object.waiting();
         Wizard1Object.goToStep3();
         Wizard1Object.step3DataEnteringForHappyFlow(nameOnCard,cardnumber,"0"+currentMonth(),cardyear,cardCvv);
+        Wizard1Object.waiting();
         Wizard1Object.orderConfirmation();
         Wizard1Object.waiting();
 //
@@ -399,9 +417,79 @@ public class WizardStep1Testcases extends Main {
 
     }
 
+    @Test
+    public void invalidNumber() throws InterruptedException
+    {
+
+
+        Wizard1Object.openLandingpage(Url);
+        Wizard1Object.waiting();
+        Wizard1Object.goToUnitSelectionPage();
+        Wizard1Object.waiting();
+        Wizard1Object.gotopromotionpage();
+        Wizard1Object.waiting();
+        Wizard1Object.gotoStep1();
+        Wizard1Object.waiting();
+        Wizard1Object.selectStais(stairsNumber);
+        Wizard1Object.selectPacking(packingNumber);
+        System.out.print("This is my month\n"+currentMonth()+"\n0"+currentMonth());
+        System.out.print("This is my year\n"+currentYear());
+        Wizard1Object.selectAddress(startAddress,addressList);
+        Wizard1Object.waiting();
+        Wizard1Object.selectDate(month,year,date+1,monthName);
+        Wizard1Object.waiting();
+
+        Wizard1Object.gotoStep2();
+        Wizard1Object.waiting();
+
+        Wizard1Object.step2DataEnteringForInvalidPhonenUmber(EmailGeneration(),invalidPhoneNumber);
+//        Wizard1Object.waiting();
+//        Wizard1Object.clickOnArea();
+        Wizard1Object.waiting();
+        actualForInvalidPhoneNumber= Wizard1Object.responseOfInvalidPhoenNumber();
+
+        Assert.assertEquals(actualForInvalidPhoneNumber,expectedForInvalidNumber);
+
+
+
+    }
+
+
+    @Test
+    public void invalidAddress() throws InterruptedException {
+        Wizard1Object.openLandingpage(Url);
+        Wizard1Object.waiting();
+        Wizard1Object.goToUnitSelectionPage();
+        Wizard1Object.waiting();
+        Wizard1Object.gotopromotionpage();
+        Wizard1Object.waiting();
+        Wizard1Object.gotoStep1();
+        Wizard1Object.waiting();
+        Wizard1Object.selectStais(stairsNumber);
+        Wizard1Object.selectPacking(packingNumber);
+        System.out.print("This is my month\n"+currentMonth()+"\n0"+currentMonth());
+        System.out.print("This is my year\n"+currentYear());
+        Wizard1Object.selectAddress(invalidAdddress,addressList);
+        Wizard1Object.waiting();
+        Wizard1Object.invalidaddressFormLink();
+        Wizard1Object.waiting();
+        Wizard1Object.enterDataForAddressUnavailable(EmailGeneration(),startAddress,phoenNumber);
+        Wizard1Object.waiting();
+        Wizard1Object.submitOnAddressUnavailable();
+        Wizard1Object.waiting();
+        Wizard1Object.successOfInvalidAddress();
+
+
+
+    }
+
+
+
+}
+
 //
 //    public void ValidationForCardNumber() throws SQLException {
 //        DBConnection.connectDb();
 //    }
 
-}
+
