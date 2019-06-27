@@ -65,7 +65,7 @@ public class MyFinanceObjects {
     public void gOToMyFinance() throws InterruptedException
     {
         Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(financelink) );
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("/html/body/section[1]/div/div/div/div/div[1]/div/a[6]")) );
         Thread.sleep(2000);
         driver.findElement(financelink).click();
         Thread.sleep(2000);

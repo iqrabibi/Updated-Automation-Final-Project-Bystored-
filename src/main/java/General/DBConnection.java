@@ -20,7 +20,7 @@ public class DBConnection {
     public static ArrayList<String> allFactor = new ArrayList<String>();
 
 
-    public static void connectDb() throws SQLException {
+    public static Connection connectDb() throws SQLException {
 
 
 
@@ -52,7 +52,7 @@ public class DBConnection {
 //    rs.close();
 //    stmt.close();
 //    conn.close();allFactor
-
+ return conn;
 
 
     }

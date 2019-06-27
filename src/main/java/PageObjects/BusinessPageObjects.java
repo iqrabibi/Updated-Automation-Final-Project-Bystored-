@@ -68,7 +68,7 @@ public class BusinessPageObjects {
         // wait.until(ExpectedConditions.presenceOfElementLocated(loginSubmitButton));
         // wait.until(ExpectedConditions.titleIs("Hassle free business storage"));
 
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(getInTouchButton) );
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.className("card__content")) );
 
         //wait.until(ExpectedConditions.presenceOfElementLocated(getInTouchButton));
         Thread.sleep(2000);

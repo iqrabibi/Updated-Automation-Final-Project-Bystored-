@@ -82,10 +82,10 @@
     <!--<methods>-->
 
     <!--<include name="loginTestCasesHappyFlow"></include>-->
-    <!--<include name="forgetPasswordTestCasesHappyFlow"></include>-->
-    <!--<include name="forgetPasswordForInvalidEmail"></include>-->
-    <!--<include name="logintestcasesForInvalidEmail"></include>-->
-    <!--<include name="loginTestCasesForInvalidPassword"></include>-->
+    <!--&lt;!&ndash;<include name="forgetPasswordTestCasesHappyFlow"></include>&ndash;&gt;-->
+    <!--&lt;!&ndash;<include name="forgetPasswordForInvalidEmail"></include>&ndash;&gt;-->
+    <!--&lt;!&ndash;<include name="logintestcasesForInvalidEmail"></include>&ndash;&gt;-->
+    <!--&lt;!&ndash;<include name="loginTestCasesForInvalidPassword"></include>&ndash;&gt;-->
 
 
 
@@ -100,8 +100,8 @@
     <!--<methods>-->
 
     <!--<include name="NegativeCaseForResetPassword" ></include>-->
-    <!--&lt;!&ndash;<include name="updatefields" ></include>&ndash;&gt;-->
-    <!--&lt;!&ndash;<include name="reSetPassword"></include>&ndash;&gt;-->
+    <!--<include name="updatefields" ></include>-->
+    <!--<include name="reSetPassword"></include>-->
 
 
 
@@ -118,9 +118,9 @@
     <!--<methods>-->
     <!--<include name="MyFinnaceHappyFlowForAddingAccount"></include>-->
 
-    <!--&lt;!&ndash;<include name="deleteCreditCard"></include>&ndash;&gt;-->
-    <!--&lt;!&ndash;<include name="negativeCasesForCardNumber"></include>&ndash;&gt;-->
-    <!--&lt;!&ndash;<include name="negativeCasesForMonthYear"></include>&ndash;&gt;-->
+    <!--<include name="deleteCreditCard"></include>-->
+    <!--<include name="negativeCasesForCardNumber"></include>-->
+    <!--<include name="negativeCasesForMonthYear"></include>-->
     <!--<include name="termOfUse"></include>-->
     <!--<include name="downloadInvoices"></include>-->
 
@@ -132,24 +132,24 @@
     <!--</test>-->
 
 
-    <!--<test name = "New Landing">-->
-        <!--<classes>-->
-            <!--<class name="TestCases.NewLandingFlows">-->
-                <!--<methods>-->
+    <!--&lt;!&ndash;<test name = "New Landing">&ndash;&gt;-->
+        <!--&lt;!&ndash;<classes>&ndash;&gt;-->
+            <!--&lt;!&ndash;<class name="TestCases.NewLandingFlows">&ndash;&gt;-->
+                <!--&lt;!&ndash;<methods>&ndash;&gt;-->
 
 
-                    <!--<include name="headerFlows"></include>-->
-                    <!--<include name="getTodaysLowestPricesFlow"></include>-->
-                    <!--<include name="bookNowFlows"></include>-->
-                    <!--<include name="calculatorFlow"></include>-->
+                    <!--&lt;!&ndash;<include name="headerFlows"></include>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<include name="getTodaysLowestPricesFlow"></include>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<include name="bookNowFlows"></include>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<include name="calculatorFlow"></include>&ndash;&gt;-->
 
 
 
 
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+                <!--&lt;!&ndash;</methods>&ndash;&gt;-->
+            <!--&lt;!&ndash;</class>&ndash;&gt;-->
+        <!--&lt;!&ndash;</classes>&ndash;&gt;-->
+    <!--&lt;!&ndash;</test>&ndash;&gt;-->
 
     <!--<test name = "Pricing ">-->
     <!--<classes>-->
@@ -165,6 +165,7 @@
     <!--</class>-->
     <!--</classes>-->
     <!--</test>-->
+
     <!--<test name = "removals">-->
     <!--<classes>-->
     <!--<class name="TestCases.RemovalsFlows">-->
@@ -188,7 +189,7 @@
                 <!--<methods>-->
 
 
-                    <!--&lt;!&ndash;<include name="statusCodeCheckingForQA1"></include>&ndash;&gt;-->
+                    <!--<include name="statusCodeCheckingForQA1"></include>-->
                     <!--<include name="statusCodeCheckingForStage"></include>-->
 
 
@@ -205,6 +206,7 @@
     <!--<class name="TestCases.StudentStorageFlows">-->
     <!--<methods>-->
 
+
     <!--<include name="GreenButtonOnPricingPageFlow"></include>-->
 
     <!--<include name="CratesAddition"></include>-->
@@ -217,7 +219,7 @@
 
     <!--<include name="TwoPersonAddition"></include>-->
     <!--<include name="TwoPersonSubstraction" ></include>-->
-        <!---->
+
     <!--<include name="AllUniversityFlow"></include>-->
     <!--<include name="CheckAvailabilityFlow"></include>-->
 
@@ -277,12 +279,24 @@
             <class name="TestCases.WizardStep1Testcases">
                 <methods>
 
-                    <!--<include name="WizardStep1HappyFlow"></include>-->
-                    <!--<include name="LoginForExistingUser"></include>-->
-                    <!--<include name="inValidEmail"></include>-->
+                    <include name="WizardStep1HappyFlow"></include>
+                    <include name="jobFactor"></include>
+                    <include name="Booking_Order_Userid"></include>
+                    <include name="StoragePlan"></include>
+                    <include name="getPhoneNumberForuser"></include>
+                    <include name="getUserNameEmail"></include>
+                    <include name="LoginForExistingUser"></include>
+                    <include name="inValidEmail"></include>
                     <include name="invalidNumber"></include>
-                    <!--<include name="timeSlotsAvaialble"></include>-->
-                    <!--<include name="alreadyExistingOrder"></include>-->
+                    <include name="timeSlotsAvaialble"></include>
+                    <include name="alreadyExistingOrder"></include>
+                    <include name="invalidAddress"></include>
+
+
+                    <include name="bookingWithValidDiscountCode"></include>
+                    <include name="bookingWithInvalidDc"></include>
+                    <include name="InvalidCardDetails"></include>
+
 
 
 
@@ -290,6 +304,40 @@
             </class>
         </classes>
     </test>
+
+    <test name = "Location Page">
+        <classes>
+            <class name="TestCases.LocationPageCases">
+                <methods>
+
+
+                    <include name="bookingCTA"></include>
+                    <include name="ClickOnEachCategory"></include>
+                    <include name="searchForValidData"></include>
+                    <include name="searchForInValidData"></include>
+
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name = "guides page">
+        <classes>
+            <class name="TestCases.GuidesPageTestCases">
+                <methods>
+
+
+                    <include name="GuidesClick"></include>
+
+
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
 
 
 </suite>

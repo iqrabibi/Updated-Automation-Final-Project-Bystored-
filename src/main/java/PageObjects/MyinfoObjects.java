@@ -53,7 +53,7 @@ public class MyinfoObjects {
     {
 
         Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(infoLink) );
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("/html/body/section[1]/div/div/div/div/div[1]/div/a[5]")) );
         Thread.sleep(2000);
         driver.findElement(infoLink).click();
         Thread.sleep(2000);

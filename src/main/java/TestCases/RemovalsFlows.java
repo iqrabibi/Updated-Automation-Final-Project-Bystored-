@@ -42,7 +42,7 @@ public class RemovalsFlows extends Main{
     {
 
         // ro = new RemovalsObjects(driver);
-        Removals_Object.openBrowser(Url);
+        Removals_Object.openBrowser(urlForQa1);
         Removals_Object.enterDataforHappyFlow(name, email,countryName,phonenumber);
         Thread.sleep(2000);
         actualForRemovalhappyFlow = Removals_Object.submit();
@@ -60,7 +60,7 @@ public class RemovalsFlows extends Main{
     public void removalForInvalidEmail() throws InterruptedException
     {
         //Removals_Object = new RemovalsObjects(driver);
-        Removals_Object.openBrowser(Url);
+        Removals_Object.openBrowser(urlForQa1);
         Thread.sleep(2000);
         actualForInvalidEmailForRemovals= Removals_Object.enterDataForInvalidEmail(name,invalidEmail,phonenumber);
 
@@ -75,7 +75,7 @@ public class RemovalsFlows extends Main{
     public void removalForInvalidPhoneNumber() throws InterruptedException
     {
         //Removals_Object = new RemovalsObjects(driver);
-        Removals_Object.openBrowser(Url);
+        Removals_Object.openBrowser(urlForQa1);
         Thread.sleep(2000);
         actualForInvalidPhoneNumberForRemovals= Removals_Object.enterDataForInvalidPhoneNumber(name,email,invalidPhoneNumber);
 
@@ -90,7 +90,7 @@ public class RemovalsFlows extends Main{
     public void removalClickHere() throws InterruptedException
     {
         // Removals_Object = new RemovalsObjects(driver);
-        Removals_Object.openBrowser(Url);
+        Removals_Object.openBrowser(urlForQa1);
         Thread.sleep(2000);
         actualForClickHere=Removals_Object.clickhere();
         Assert.assertTrue(actualForClickHere);

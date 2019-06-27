@@ -63,7 +63,7 @@ public class PricingPageObjects {
 
     public void reserveStorageUnit()
     {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(greenReserveButton));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[@id=\"additionalservices\"]/div/div[1]/div[6]/div")));
         driver.findElement(greenReserveButton).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(afterGreenButtonClick));
         if(driver.findElement(afterGreenButtonClick).isDisplayed())
@@ -76,7 +76,7 @@ public class PricingPageObjects {
 
     public int removalButton()
     {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(greenRemovalButton));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[@id=\"additionalservices\"]/div/div[1]/div[6]/div")));
         driver.findElement(greenRemovalButton).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(afterRemovalClick));
         if(driver.findElement(afterRemovalClick).isDisplayed())
@@ -90,7 +90,7 @@ public class PricingPageObjects {
 
     public void removalServices()
     {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(remoavlServices));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[@id=\"additionalservices\"]/div/div[1]/div[6]/div")));
         driver.findElement(remoavlServices).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(afterMoveservice));
         if(driver.findElement(afterMoveservice).isDisplayed())
@@ -102,7 +102,7 @@ public class PricingPageObjects {
 
     public int LongTermstorage() throws InterruptedException {
         Thread.sleep(2000);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(longtermpart));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[@id=\"got-question\"]/div/div/div/h2")));
         driver.findElement(longTermStorage).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(afterLongTerm));
         if(driver.findElement(afterLongTerm).isDisplayed())
@@ -114,7 +114,7 @@ public class PricingPageObjects {
     }
 
     public int[] FaqsOfPricing() throws InterruptedException {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(leftFaqs));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[@id=\"custom-faqs\"]/div[1]/h2")));
         Sleep();
         System.out.print(""+i+"Heading");
         wait.until(ExpectedConditions.visibilityOfElementLocated(leftFaqs));

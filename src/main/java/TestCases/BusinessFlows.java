@@ -12,6 +12,7 @@ import java.sql.SQLException;
 
 import static General.InitMethods.Business_Object;
 import static General.InitMethods.Url;
+import static General.InitMethods.urlForQa1;
 
 /**
  * Created by VenD on 4/16/2018.
@@ -48,7 +49,7 @@ public class BusinessFlows extends Main{
 
 //        bp=new BusinessPageObjects(driver);
 //        System.out.print(Url);
-        Business_Object.openBusinessPage(Url);
+        Business_Object.openBusinessPage(urlForQa1);
         Thread.sleep(2000);
         Business_Object.goToForm();
         Thread.sleep(2000);

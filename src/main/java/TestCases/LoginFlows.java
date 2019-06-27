@@ -44,7 +44,7 @@ public class LoginFlows extends Main{
     {
 
         //  Login_Object=new LoginObjects(driver);
-        Login_Object.openLoginPage(Url);
+        Login_Object.openLoginPage(urlForQa1);
         Thread.sleep(1000);
         actualForForgetPassword =Login_Object.forget_password(email);
         Assert.assertEquals(""+expectedForForgetPassword,""+actualForForgetPassword,"");
@@ -70,7 +70,7 @@ public class LoginFlows extends Main{
     {
 
         // Login_Object=new LoginObjects(driver);
-        Login_Object.openLoginPage(Url);
+        Login_Object.openLoginPage(urlForQa1);
         Thread.sleep(1000);
 
         Login_Object.enterDataForLogin(email,password);
@@ -90,7 +90,7 @@ public class LoginFlows extends Main{
     public void logintestcasesForInvalidEmail() throws InterruptedException
     {
         // log=new LoginObjects(driver);
-        Login_Object.openLoginPage(Url);
+        Login_Object.openLoginPage(urlForQa1);
         Thread.sleep(1000);
         actualForInvalidEmailForLogin=Login_Object.enterDataForInvalidEmailForLogin(invalidEmail,password);
 
@@ -105,7 +105,7 @@ public class LoginFlows extends Main{
     public void loginTestCasesForInvalidPassword() throws  InterruptedException
     {
         // log=new LoginObjects(driver);
-        Login_Object.openLoginPage(Url);
+        Login_Object.openLoginPage(urlForQa1);
 
         Thread.sleep(1000);
 

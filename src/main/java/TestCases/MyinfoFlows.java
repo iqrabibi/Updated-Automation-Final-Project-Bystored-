@@ -37,7 +37,7 @@ public class MyinfoFlows extends Main {
     {
         //in=new MyinfoObjects(driver);
         Thread.sleep(2000);
-        My_Info_Object.openMyAccountPage(email,pasword,Url);
+        My_Info_Object.openMyAccountPage(email,pasword,urlForQa1);
         Thread.sleep(2000);
         My_Info_Object.gotoMyInfoPage();
         Thread.sleep(2000);

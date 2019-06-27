@@ -30,7 +30,7 @@ public class FaqsFlows extends Main {
     @Test
 
     public  void ContactUsFlow() throws InterruptedException {
-        Faqs_Object.openFaqsPage(Url);
+        Faqs_Object.openFaqsPage(urlForQa1);
        actualForFaqHappyFlow= Faqs_Object.contactUsButtonClick();
         Faqs_Object.Sleep();
         Assert.assertEquals(actualForFaqHappyFlow,expectedForFaqsHappyFlow);
@@ -50,7 +50,7 @@ public class FaqsFlows extends Main {
 
     @Test
     public void ScrollUpFlows() throws InterruptedException {
-        Faqs_Object.openFaqsPage(Url);
+        Faqs_Object.openFaqsPage(urlForQa1);
         actualForScrollUp=Faqs_Object.ScrollUp();
         Faqs_Object.Sleep();
         Assert.assertTrue(actualForScrollUp);
@@ -59,7 +59,7 @@ public class FaqsFlows extends Main {
     }
     @Test
     public void SeacrhFunctionalityWithValidData() throws InterruptedException {
-        Faqs_Object.openFaqsPage(Url);
+        Faqs_Object.openFaqsPage(urlForQa1);
         Faqs_Object.SleepForLeftSide();
         textGet=Faqs_Object.SeacrhFunctionality(searchValidText);
         Faqs_Object.Sleep();
@@ -69,7 +69,7 @@ public class FaqsFlows extends Main {
     }
     @Test
     public void SeacrhFunctionalityWithInValidData() throws InterruptedException {
-        Faqs_Object.openFaqsPage(Url);
+        Faqs_Object.openFaqsPage(urlForQa1);
         textGet=Faqs_Object.SeacrhFunctionality(SearchInvalidText);
         Faqs_Object.Sleep();
         Assert.assertEquals(textGet,expectedForInValid);

@@ -20,7 +20,7 @@ public class FaqsPageObjects {
     public static By contactUsNameField=By.className("font-bold");
     public static String responseOfContactUsButton;
     public static By LeftSection=By.className("faqs-section-nav");
-    public static By scrollButton=By.className("scroll-top");
+    public static By scrollButton=By.xpath("/html/body/section[1]/a");
     public static String contcatUsText;
     public static By Search=By.id("searchQuery");
     public static By searchNotFound=By.className("not-found");
@@ -70,7 +70,7 @@ public class FaqsPageObjects {
     }
 
     public int[] leftSection() throws InterruptedException {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(LeftSection));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.id("searchQuery")));
 //        List<WebElement> allElements = driver.findElements(LeftSection);
 //        System.out.println(allElements);
 //

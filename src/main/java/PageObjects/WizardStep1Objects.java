@@ -8,10 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import static PageObjects.BusinessPageObjects.Email;
 
 /**
  * Created by VenD on 3/27/2019.
@@ -67,7 +69,9 @@ public class WizardStep1Objects {
     public static By confirmPassword=By.id("confirmPassword");
     public static By clickOnSetPassword=By.id("profileSubmit");
     public static By resetPasswordMessage=By.id("successMessage");
-    public static By logoutButton=By.xpath("//*[@id=\"new-header-links\"]/li[11]");
+    public static By logoutButtonForQa1=By.xpath("//*[@id=\"new-header-links\"]/li[11]/a");
+    public static By logoutButtonForStage=By.xpath("//*[@id=\"new-header-links\"]/li[11]/a");
+    public static By logoutForInvalidCrad= By.xpath("//*[@id=\"new-header-links\"]/li[9]/a");
     public static By afterLogout=By.id("email");
     public static By signInlink=By.linkText("Sign in here");
     public static By signInModal=By.className("modal-body");
@@ -91,13 +95,30 @@ public class WizardStep1Objects {
     public static Boolean reponseOfInvalidNumber;
     public static By invalidNumberMessage=By.id("pNumber-error");
     public static By clickBlankArea=By.xpath("//*[@id=\"registerForm\"]/div[3]/div[2]/div/div[2]/a/img");
-    public static By invalidformLink=By.id("notAvailable");
+    public static By invalidformLink=By.linkText("Fill the form");
     public static By postcode=By.id("postcode-unavailable-postcode");
     public static By emailOnAddress=By.id("postcode-unavailable-email");
     public static By PostCodePhoneNumber=By.id("postcode-unavailable-phone");
     public static By submitOnInvalidAddressForm=By.id("submit-postcodeunavailable-form");
     public static By responseOfInvalidAddress=By.id("postcode-unavailable-success");
     public static Boolean InvalidAddressResponse;
+    public static By DisocuntCodeFiled=By.id("coupon-code");
+    public static By DiscountCodeSuccessMsg=By.id("coupon-valid");
+    public static Boolean DcSuccessmsg;
+    public static By DiscountCodeErrorMsg=By.id("coupon-invalid");
+    public static Boolean DcErrorMsg;
+    public static int count=0;
+
+    public static By errorForInvalidCrad=By.id("ccnumber-error");
+    public static By errorForINvalidDate=By.id("expiry-error");
+    public static By errorForInvalidCVV=By.id("expiry-error");
+
+
+    public static Connection conn;
+    public static Statement stmt;
+    public static String sql;
+    public static ArrayList<String> allFactor = new ArrayList<String>();
+
 
     public static ArrayList<String> starisInfo;
 
@@ -225,6 +246,23 @@ public class WizardStep1Objects {
         WebElement elementAddressINfo2=driver.findElement(dateList2);
         List<WebElement> AddressInfo2=elementAddressINfo2.findElements(By.tagName("li"));
         AddressInfo2.get(addressList).click();
+
+
+
+    }
+
+    public void selectAddressForInvalidAddress(String startAddress,int addressList) throws InterruptedException {
+
+
+        driver.findElement(adressEnter).sendKeys(startAddress);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(adressList));
+        WebElement elementAddressINfo=driver.findElement(adressList);
+        List<WebElement> AddressInfo=elementAddressINfo.findElements(By.tagName("li"));
+        AddressInfo.get(addressList).click();
+        waiting();
+//        WebElement elementAddressINfo2=driver.findElement(dateList2);
+//        List<WebElement> AddressInfo2=elementAddressINfo2.findElements(By.tagName("li"));
+//        AddressInfo2.get(addressList).click();
 
 
 
@@ -466,7 +504,7 @@ public class WizardStep1Objects {
     public void termsOfAggrement()
     {
 
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(termAggrement) );
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(DisocuntCodeFiled) );
 
         driver.findElement(termAggrement).click();
     }
@@ -481,6 +519,25 @@ public class WizardStep1Objects {
         enterCardCvv(cardCvv);
         Thread.sleep(2000);
         termsOfAggrement();
+    }
+
+    public void step3InvalidData(String name,String number, String cradMonth , String cradYear, String cvv, String dc)
+
+    {
+        enterCardname(name);
+        enterCardnumber(number);
+        enterCardMonth(cradMonth);
+        enterCardYear(cradYear);
+        enterCardCvv(cvv);
+       // clcikOnTooltipOfCardStep();
+       //
+        // DcFiledClick(dc);
+
+
+    }
+    public void clcikOnTooltipOfCardStep()
+    {
+        driver.findElement(By.xpath("//*[@id=\"newCard\"]/div[3]/div[2]/div/div[1]/div/div[2]/a/img"));
     }
 
     public void orderConfirmation()
@@ -539,12 +596,30 @@ public class WizardStep1Objects {
         wait.until(ExpectedConditions.visibilityOfElementLocated(resetPasswordMessage));
     }
 
-    public void ClickLogout()
+    public void ClickLogout(int qaOrStage)
     {
 
-        driver.findElement(logoutButton).click();
+        if(qaOrStage==1) {
+            driver.findElement(logoutButtonForQa1).click();
+        }
+        else {
+            driver.findElement(logoutButtonForStage).click();
+        }
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(afterLogout));
     }
+
+    public void LogoutForInvalidCard()
+    {
+
+        {
+            driver.findElement(logoutForInvalidCrad).click();
+        }
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(afterLogout));
+    }
+
+
 
 
 
@@ -666,19 +741,15 @@ public class WizardStep1Objects {
 //
 //    }
 
-    public ArrayList<String> responseOfStairsInfo(String email) throws SQLException {
 
 
-       starisInfo= DBConnection.GetStairsInfo(email);
-        return starisInfo;
-    }
 
 
-    public void clickOnArea()
-    {
-        driver.findElement(clickBlankArea).click();
-
-    }
+//    public void clickOnArea()
+//    {
+//        driver.findElement(clickBlankArea).click();
+//
+//    }
     public void invalidaddressFormLink()
     {
         wait.until(ExpectedConditions.visibilityOfElementLocated(invalidformLink));
@@ -724,6 +795,291 @@ public class WizardStep1Objects {
         InvalidAddressResponse =driver.findElement(responseOfInvalidAddress).isDisplayed();
         return InvalidAddressResponse;
 
+
     }
+    public void DcFiledClick(String dc)
+    {
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(DisocuntCodeFiled) );
+
+        driver.findElement(DisocuntCodeFiled).sendKeys(dc);
+
+
+    }
+    public Boolean getSuccessmessageForValidDc()
+    {
+        DcSuccessmsg=driver.findElement(DiscountCodeSuccessMsg).isDisplayed();
+        return DcSuccessmsg;
+    }
+    public Boolean getErrorMsgOnInvalidDc()
+    {
+        DcErrorMsg=driver.findElement(DiscountCodeErrorMsg).isDisplayed();
+        return DcErrorMsg;
+
+    }
+
+    public int Invalid_Card_details()
+    {
+
+        if(driver.findElement(errorForInvalidCrad).isDisplayed()==true&&driver.findElement(errorForINvalidDate).isDisplayed()==true&&driver.findElement(errorForInvalidCVV).isDisplayed()==true)
+        {
+            count=count+1;
+        }
+        return count;
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public ArrayList<String> responseOfStairsInfo(String email) throws SQLException {
+
+
+        starisInfo= DBConnection.GetStairsInfo(email);
+        return starisInfo;
+    }
+
+
+
+
+
+
+
+
+
+
+    public void ConnectDb() throws SQLException
+    {
+        conn= DBConnection.connectDb();
+    }
+    public void closeDb() throws SQLException {
+        DBConnection.closeDB();
+    }
+
+    public  ArrayList getUserId(String Email) throws SQLException {
+
+        ConnectDb();
+        System.out.println("Creating statement...");
+        stmt = conn.createStatement();
+        sql = String.format("select job_factor_identifier from job_parameters where booking_id=(select id from bookings where orderRef=(select id from orders where user=(select id from users where email='%s')))", Email);
+        ResultSet rs = stmt.executeQuery(sql);
+
+        System.out.print(rs);
+
+//        int columnCount = resultSetMetaData.getColumnCount();
+//        ArrayList<Object> columnValues = new ArrayList<Object>();
+
+        while (rs.next()) {
+//            for (int i = 0; i < columnCount; i++) {
+//                columnValues.add(rs.getString(resultSetMetaData.getColumnName(i)));
+
+            System.out.println(rs.getString(1));
+            allFactor.add(rs.getString("job_factor_identifier"));
+            // allFactors = rs.getString("job_factor_identifier");
+
+        }
+
+
+
+        System.out.println(allFactor);
+
+//    int id  = rs.getInt("id");
+//    System.out.print("ID: " + id);
+        rs.close();
+        stmt.close();
+        closeDb();
+        return allFactor;
+    }
+
+
+
+    public ArrayList<String> getIds(String Email) throws SQLException {
+        ConnectDb();
+        System.out.println("Creating statement...");
+        stmt = conn.createStatement();
+        sql = String.format(("select o.user,b.orderRef,b.id, email, u.created_timestamp,o.user,b.orderRef,b.created_by_admin from users u Inner join orders o On u.id = o.user inner join bookings b on o.id=b.orderRef where u.email='%s' order by b.id desc"), Email);
+        ResultSet rs = stmt.executeQuery(sql);
+        ResultSetMetaData resultSetMetaData = rs.getMetaData();
+        System.out.print("\n"+resultSetMetaData);
+        System.out.print(rs);
+
+
+        int columnCount = resultSetMetaData.getColumnCount();
+        ArrayList<String > columnValues = new ArrayList<String>();
+
+        while (rs.next()) {
+            for (int i = 1; i <= columnCount; i++) {
+                columnValues.add(rs.getString(resultSetMetaData.getColumnName(i)));
+                System.out.print("\n"+rs.getString(resultSetMetaData.getColumnName(i)));
+            }
+//        while (rs.next()) {
+//            System.out.println(rs.getString(1));
+//            allFactor.add(rs.getString("job_factor_identifier"));
+//            // allFactors = rs.getString("job_factor_identifier");
+//
+//        }
+        }
+
+            System.out.println(columnValues);
+
+            rs.close();
+            stmt.close();
+            closeDb();
+        return columnValues;
+
+
+
+    }
+
+
+
+
+    public ArrayList<String> getStoragePlan(int orderId) throws SQLException {
+        ConnectDb();
+        System.out.println("Creating statement...");
+        stmt = conn.createStatement();
+        sql = "select o.storage_unit_id,o.order_id,o.price, su.name, su.display_name from order_storage_plans o \n" +
+                "inner join orders orr \n" +
+                "On orr.id=o.order_id\n" +
+                "inner join storage_units su\n" +
+                "on o.storage_unit_id=su.id where o.order_id="+orderId;
+        ResultSet rs = stmt.executeQuery(sql);
+        ResultSetMetaData resultSetMetaData = rs.getMetaData();
+        System.out.print("\n"+resultSetMetaData);
+        System.out.print(rs);
+
+
+        int columnCount = resultSetMetaData.getColumnCount();
+        ArrayList<String > columnValues = new ArrayList<String>();
+
+        while (rs.next()) {
+            for (int i = 1; i <= columnCount; i++) {
+                columnValues.add(rs.getString(resultSetMetaData.getColumnName(i)));
+                System.out.print("\n"+rs.getString(resultSetMetaData.getColumnName(i)));
+            }
+//        while (rs.next()) {
+//            System.out.println(rs.getString(1));
+//            allFactor.add(rs.getString("job_factor_identifier"));
+//            // allFactors = rs.getString("job_factor_identifier");
+//
+//        }
+        }
+
+        System.out.println(columnValues);
+
+        rs.close();
+        stmt.close();
+        closeDb();
+        return columnValues;
+
+
+
+    }
+
+
+
+    public ArrayList<String> getUserPhoneNumber(String  Email) throws SQLException {
+        ConnectDb();
+        System.out.println("Creating statement...");
+        stmt = conn.createStatement();
+        sql = "select pn.id, dialing_code,national_number, email, firstName, user_id from phone_numbers pn \n" +
+                "inner join users s ON s.id=pn.user_id where s.email='abc' order by pn.id desc;";
+        ResultSet rs = stmt.executeQuery(sql);
+        ResultSetMetaData resultSetMetaData = rs.getMetaData();
+        System.out.print("\n"+resultSetMetaData);
+        System.out.print(rs);
+
+
+        int columnCount = resultSetMetaData.getColumnCount();
+        ArrayList<String > columnValues = new ArrayList<String>();
+
+        while (rs.next()) {
+            for (int i = 1; i <= columnCount; i++) {
+                columnValues.add(rs.getString(resultSetMetaData.getColumnName(i)));
+                System.out.print("\n"+rs.getString(resultSetMetaData.getColumnName(i)));
+            }
+//        while (rs.next()) {
+//            System.out.println(rs.getString(1));
+//            allFactor.add(rs.getString("job_factor_identifier"));
+//            // allFactors = rs.getString("job_factor_identifier");
+//
+//        }
+        }
+
+        System.out.println(columnValues);
+
+        rs.close();
+        stmt.close();
+        closeDb();
+        return columnValues;
+
+
+
+    }
+
+
+    public ArrayList<String> getUserNameEmail(String  Email) throws SQLException {
+        ConnectDb();
+        System.out.println("Creating statement...");
+        stmt = conn.createStatement();
+        sql = String.format(("select firstName,email ,created_timestamp   from users where email='%s' order by id desc"),Email);
+        ResultSet rs = stmt.executeQuery(sql);
+        ResultSetMetaData resultSetMetaData = rs.getMetaData();
+        System.out.print("\n"+resultSetMetaData);
+        System.out.print(rs);
+
+
+        int columnCount = resultSetMetaData.getColumnCount();
+        ArrayList<String > columnValues = new ArrayList<String>();
+
+        while (rs.next()) {
+            for (int i = 1; i <= columnCount; i++) {
+                columnValues.add(rs.getString(resultSetMetaData.getColumnName(i)));
+                System.out.print("\n"+rs.getString(resultSetMetaData.getColumnName(i)));
+            }
+//        while (rs.next()) {
+//            System.out.println(rs.getString(1));
+//            allFactor.add(rs.getString("job_factor_identifier"));
+//            // allFactors = rs.getString("job_factor_identifier");
+//
+//        }
+        }
+
+        System.out.println(columnValues);
+
+        rs.close();
+        stmt.close();
+        closeDb();
+        return columnValues;
+
+
+
+    }
+
+
+
+
+
+
 }
 

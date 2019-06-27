@@ -34,7 +34,7 @@ public class ContactUsFlows extends Main {
     public  void contactUsHappyFlow() throws InterruptedException {
 
 //
-        Contact_Us_Object.openContactUsPage(Url);
+        Contact_Us_Object.openContactUsPage(urlForQa1);
 //        Thread.sleep(2000);
 
 
@@ -55,7 +55,7 @@ public class ContactUsFlows extends Main {
     public void contactUsWithInvalidEmail() throws InterruptedException
     {
 
-        Contact_Us_Object.openContactUsPage(Url);
+        Contact_Us_Object.openContactUsPage(urlForQa1);
         Contact_Us_Object.enterDataForContactUsInvalidEmail(firstName,lastName,invalidEmail,phoneNumber);
        actualForContactUsInvalidEmail= Contact_Us_Object.responseForInvalidEmail();
         Contact_Us_Object.Sleep();
@@ -68,7 +68,7 @@ public class ContactUsFlows extends Main {
 
     public void contactUsWithInvalidPhoneNumebr() throws InterruptedException
     {
-        Contact_Us_Object.openContactUsPage(Url);
+        Contact_Us_Object.openContactUsPage(urlForQa1);
         Contact_Us_Object.enterDataForContactUsInvalidPhoneNumber(firstName,lastName,email,invalidPhoneNumber,inquiryOptions);
         actualForContactUsInvalidPhoneNumber=Contact_Us_Object.responseForInvalidPhoneNumber();
         Contact_Us_Object.Sleep();
@@ -81,7 +81,7 @@ public class ContactUsFlows extends Main {
 
     public void contactUsWithEmptyFields() throws InterruptedException
     {
-        Contact_Us_Object.openContactUsPage(Url);
+        Contact_Us_Object.openContactUsPage(urlForQa1);
         Contact_Us_Object.submitForm();
         actualForcontactUsWithEmptyFields=Contact_Us_Object.responseWithEmptyFields();
         Contact_Us_Object.Sleep();

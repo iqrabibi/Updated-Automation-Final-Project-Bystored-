@@ -22,7 +22,7 @@ public class PricingFlows extends Main {
 
     @Test
     public void GreenButtonOnPricingPageFlow() throws InterruptedException {
-        PricingObject.openPricingPage(Url);
+        PricingObject.openPricingPage(urlForQa1);
         PricingObject.reserveStorageUnit();
         actualCount=PricingObject.removalButton();
         PricingObject.Sleep();
@@ -43,7 +43,7 @@ public class PricingFlows extends Main {
 
     @Test
     public void faqsOfPricingFlows() throws InterruptedException {
-        PricingObject.openPricingPage(Url);
+        PricingObject.openPricingPage(urlForQa1);
         expectedForFaqs=PricingObject.FaqsOfPricing();
         System.out.print("\n"+expectedForFaqs[0]+"\n"+expectedForFaqs[1]);
         Assert.assertEquals(expectedForFaqs[0],expectedForFaqs[1]);

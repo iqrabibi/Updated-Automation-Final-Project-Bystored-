@@ -42,6 +42,8 @@ public class InitMethods {
     public static PricingPageObjects PricingObject=new PricingPageObjects(driver,wait);
     public static StudentStorageObjects StudentObject=new StudentStorageObjects(driver,wait);
     public static WizardStep1Objects Wizard1Object=new WizardStep1Objects(driver,wait);
+    public static LocationPageObject locationObject=new LocationPageObject(driver,wait);
+    public static GuidesPageObjects guideObject=new GuidesPageObjects(driver,wait);
 
 
     public ExtentTest test;
